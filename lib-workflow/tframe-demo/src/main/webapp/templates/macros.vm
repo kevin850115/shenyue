@@ -1,0 +1,3 @@
+#macro(test)
+	<div>test</div>
+#end

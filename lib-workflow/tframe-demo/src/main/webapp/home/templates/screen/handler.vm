@@ -1,0 +1,47 @@
+#if ( $rs )
+	执行结果:$rs
+#end
+<form>
+#foreach ($v in $allValues )
+	$v.getDesc()
+	<select name="D_$v.name()">
+		#foreach ($vv in $v.getValues())
+		<option value="$vv.getStatusValue()" #if ( $selected.get($v.name()) == $vv.getStatusValue()) selected #end >$vv.name()</option>
+		#end
+		<option value="-1234" #if ( $selected.get($v.name()) == "-1234" ) selected #end >不设置</option>
+	</select>
+	<br>
+#end
+类型(1/2):<input type="text" name="type" value="$!type"></input>
+<br>
+Model个数:<input type="text" name="number" value="#if($number)${number}#else 1#end"></input>
+<br>
+<input type="submit" value="查询支持的Handler"></input>
+</form>
+	
+<hr>
+当前状态支持的Handler
+<br>
+<table>
+	<tr>
+#foreach ( $ent in $allHandlers.entrySet() )
+	#set($name=$ent.key)
+	#set($bean=$ent.value)
+	<td style="float:left;margin-right:5px;margin-bottom:0px;">
+		<form>
+			<input type="hidden" name="cmd" value="trig"/>
+			<input type="hidden" name="handler" value="$name"/>
+			<input type="hidden" name="type" value="$!type"/>
+			<input type="hidden" name="number" value="$!number"/>
+			#foreach ( $ent in $selected.entrySet() )
+			<input type="hidden" name="D_$ent.key" value="$ent.value" />
+			#end
+			<input type="submit" value="$name:$bean"  #if ( !$handlers.contains($name) ) style="color:gray" #else style="color:red;font-size:120%" #end></input>
+		</form>
+	</td>
+	#if ( $velocityCount % 5 == 0 )
+		</tr><tr>
+	#end
+#end
+	</tr>
+</table>

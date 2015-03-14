@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<group>
+		<property name="demo.work" defaultValue="/home/admin" description="应用程序的工作目录" />
+		<property name="demo.loggingRoot" defaultValue="${demo.work}/demo/logs" description="日志文件目录" />
+		<property name="demo.loggingLevel" defaultValue="debug" description="日志文件级别">
+			<validator name="choice" choice="trace, debug, info, warn, error" />
+		</property>
+		<property name="tframe.app.name" defaultValue="XXX" description="应用" />
+	</group>
+	<script>
+		<generate template="WEB-INF/web.xml" />
+		<generate template="WEB-INF/log4j.xml" />
+		<generate template="WEB-INF/common/spring-all.xml" />
+	</script>
+</config>

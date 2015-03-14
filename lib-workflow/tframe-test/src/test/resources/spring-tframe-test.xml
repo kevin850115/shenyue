@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    	xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:jobext="http://www.taobao.com/schema/jobext"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/aop   
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd  
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+			http://www.taobao.com/schema/jobext
+			http://www.taobao.com/schema/ext/jobext.xsd
+           " 
+           default-autowire="byName">
+	
+	<bean name="tframeSystemConfig" class="com.taobao.trip.tframe.config.TframeSystemConfig">
+		<property name="appName" value="DEMO_TEST"></property>
+	</bean>
+
+</beans>

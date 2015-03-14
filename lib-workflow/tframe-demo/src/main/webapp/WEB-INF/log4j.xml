@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="null">
+	<appender name="PROJECT" class="com.alibaba.common.logging.spi.log4j.DailyRollingFileAppender">
+		<param name="file" value="${demo.loggingRoot}/tframe-log4j.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="GBK" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%n%d [%X{loginUserNick}@%X{remoteAddr} - %X{method} %X{requestURIWithQueryString}] %nUserAgent: %X{userAgent}%nReferrer: %X{referrer}%n%-5p [%c{1}:%L] - %m%n" />
+		</layout>
+	</appender>
+	<appender name="tframe-tddl" class="com.alibaba.common.logging.spi.log4j.DailyRollingFileAppender">
+		<param name="file" value="${demo.loggingRoot}/tframe-tddl-log4j.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="GBK" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%n%d [%X{loginUserNick}@%X{remoteAddr} - %X{method} %X{requestURIWithQueryString}] %nUserAgent: %X{userAgent}%nReferrer: %X{referrer}%n%-5p [%c{1}:%L] - %m%n" />
+			<param name="ConversionPattern" value="%d [%X{requestURIWithQueryString}] %-5p %c{2} - %m%n" />
+		</layout>
+	</appender>
+	<appender name="FILTER" class="com.alibaba.common.logging.spi.log4j.DailyRollingFileAppender">
+        <param name="file" value="${demo.loggingRoot}/tframe-filter.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="GBK"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %-5p %c{2} - %m%n"/>
+        </layout>
+    </appender>
+
+    <logger name="com.alibaba.webx.filter" additivity="false">
+        <level value="WARN"/>
+        <appender-ref ref="FILTER"/>
+    </logger>
+
+	<!-- ===================================================================== -->
+	<!-- 以下是logger的定义 -->
+	<!-- ===================================================================== -->
+	<logger name="com.taobao.tddl" additivity="false">
+		<level value="${demo.loggingLevel}" />
+		<appender-ref ref="tframe-tddl" />
+	</logger>
+
+	<!-- ===================================================================== -->
+	<!-- Root logger的定义 -->
+	<!-- ===================================================================== -->
+	<root>
+		<level value="${demo.loggingLevel}" />
+		<appender-ref ref="PROJECT" />
+	</root>
+</log4j:configuration>
