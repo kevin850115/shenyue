@@ -1,0 +1,26 @@
+#set($title_content='首页')
+
+<div class="mt20 ml20">
+<a class="btn btn-large white btn-danger f20" href="/index2.htm">点击去新版，功能更强大</a>
+</div>
+<div style="text-align:center;margin-top:200px;color : #00C4FC;">
+
+<h1>欢迎来到Ateye系统维护平台</h1>
+<br>
+<div class="green fb f18">交流旺旺群:1053401873</div>
+
+
+</div>
+<div class="ml20 mt50">
+	#if ( $apps && $apps.size()>0 )
+	<div> 
+		<h4>最常去的应用</h4>
+		#foreach ( $app in $apps )
+			#if ( $app.app )
+			<a class="btn btn-small btn-success mr5 white f16" href="/apps/detail.htm?app=$app.app" target="_blank">$app.app</a>
+			#end
+		#end
+	</div>
+	#end
+	
+</div>

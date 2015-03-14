@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.local.kevin</groupId>
+		<artifactId>kevin-all</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	<groupId>com.local.kevin</groupId>
+	<artifactId>kevin-api</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>kevin-api</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<spring.version>3.0.5.RELEASE</spring.version>
+		<spring.security.version>3.0.3.RELEASE</spring.security.version>
+		<project.build.sourceEncoding>GBK</project.build.sourceEncoding>
+		<autoconfig-plugin-version>1.0.6</autoconfig-plugin-version>
+		<java.version>1.7</java.version>
+		<java.encoding>GBK</java.encoding>
+	</properties>
+
+	<dependencies>
+	
+	</dependencies>
+	<build>
+		<finalName>kevin-api</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>${java.encoding}</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

@@ -1,0 +1,36 @@
+#set($level0="none")
+#set($layout="layout/newLayout.vm")
+#set ($loginNick = $!{request.getAttribute("ateye_nick")} )
+
+<div class="ml20 mt10">
+	#if ( $apps && $apps.size()>0 )
+	<div> 
+		<h4>最常去的应用</h4>
+		#foreach ( $app in $apps )
+			#if ( $app.app )
+			<a class="btn btn-success btn-large mr5 white f20" href="/apps/detail.htm?app=$app.app" target="_blank">$app.app</a>
+			#end
+		#end
+	</div>
+	#end
+	
+</div>
+$user.id
+123123
+#if ( $loginNick == '秦冲' )
+
+<hr>
+<div class="ml20 mt100">
+	<a class="btn btn-large f26 white btn-danger" href="/kv/multiView.htm?app=tracker" target="_blank">点击查看Tracker工作情况</a>
+</div>
+
+#end
+
+<div style="text-align:center;margin-top:200px;color : #00C4FC;">
+<h1>${loginNick}，欢迎来到Ateye</h1>
+<br>
+<div class="green fb f18">交流旺旺群:1053401873</div>
+
+
+</div>
+

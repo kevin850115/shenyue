@@ -1,0 +1,35 @@
+#set($level1="修改管理员")
+
+#set($layout="layout/newLayout.vm")
+
+
+<div class="full">
+	#if ( $error) 
+		<div class="alert alert-info f18">$error</div>
+	#end
+</div>
+<div class="class1 ml20 w300 mb20 p10">
+	1.管理员以,号分割，最多10个<br>
+	2.管理员每天可以收到线上环境的报表<br>
+</div>
+<div class="full">
+     <form class="form-horizontal">
+	${csrfToken.hiddenField}	
+    <input type="hidden" name="app" value="$app"/>
+    <input type="hidden" name="doUpdate" value="1"/>
+    <div class="control-group">
+	    <label class="control-label" for="inputPassword"><span class="f18">${app}管理员</span></label>
+	    <div class="controls">
+		    <input type="text" id="inputPassword" name="admins" #if ( $admins ) value="$admins" #end placeholder="#if ( $admins ) $admins #else 逗号分割，最多10个人#end" requried>
+	    </div>
+    </div>
+	
+    <div class="control-group">
+    <div class="controls">
+    <button type="submit" class="btn">更新</button>
+    </div>
+	
+    </div>
+    </form>
+		
+</div><!-- /.container -->

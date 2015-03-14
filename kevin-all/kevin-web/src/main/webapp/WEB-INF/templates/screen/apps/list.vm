@@ -1,0 +1,30 @@
+#set($level1="内部工具")
+#set($level2="机器数统计")
+#set($level2Url="/apps/list.htm")
+#set($layout="layout/newLayout.vm")
+<div class="ml20">
+	<h1>机器总数:<font class="green fb">$total</font></h1>
+	<hr>
+</div>
+<div class="full">
+		#foreach( $biz in $bizMap.keySet() )
+        <div class="">
+			<h2>$biz ($bizCountMap.get($biz))</h2>
+			<div>
+				#foreach($apps in $bizMap.get($biz))
+					#if ( $biz != "" )
+						#set($app=$apps.get(0))
+						#set($desc=$apps.get(1))
+						#set($num= $serverMap.get($app))
+						<div class="fl"><a class="darkgray btn f16 m5" href="/machine/opsList.htm?app=$app" #if ( !$existApps.contains($app) ) style="text-decoration:line-through" #end>
+							$app<br>$desc<span class="red fb f18">#if ( $num ) [$!num] #else [0] #end</span></a>
+						</div>
+						
+					#end
+				#end
+			</div>
+			<div class="cl"></div>
+        </div>
+		#end
+		
+</div><!-- /.container -->

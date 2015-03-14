@@ -1,0 +1,56 @@
+#set($level1="角色管理")
+#if ( $app )
+#set($level2="$app")
+#set($level2Url="/apps/detail.htm?app=$app")
+#end
+#set($layout="layout/newLayout.vm")
+<div class="ml20">	
+<div class="">
+	<div class="class1 mt10 mb10 p5">
+		<form action="$request.contextPath/manage/role/queryRole.htm" method="post">
+			角色名称：<input type="text" name="name" length="5"></input>&nbsp;
+			<button type="submit" value="submit">查询</button>&nbsp;
+			<button type="button" onclick="location.href = '$request.contextPath/manage/role/addRole.htm'">添加角色</button>
+		</form>
+	</div>
+	<table class="w tb tc f14">
+		<thead >
+			<tr>
+                <td align='center'>ID</td>
+                <td align='center'>角色名称</td>
+				<td align='center'>角色描述</td>
+                <td align='center'>操作</td>
+			</tr>
+		</thead>
+		
+		<tbody>
+			#if($allRoles && $allRoles.size()>0)
+        			#foreach( $!role in $!allRoles )
+						#if($!role)
+                        <tr onMouseOut="this.style.backgroundColor='#FFFFFF' " 
+			                onMouseOver="this.style.backgroundColor='#FFF0C5'" 
+			                bgcolor="#FFFFFF">		
+        					<td align='center'>$!role.id</td>
+        					<td align='center'>$!role.name</td>	
+							<td align='center'>$!role.description</td>
+							<td class="tc pt5">
+								<a href="/manage/role/editRole.htm?id=$!role.id" target="_self">
+									<img src="/static/images/edit.png" title="编辑"></img>
+								</a>
+								<a onclick="javascipt:if(confirm('您确定要删除该角色吗')){return true;}else{return false;}" href="/manage/role/deleteRole.htm?id=$role.id">
+									<img src="/static/images/delete.gif" title="删除"></img>
+								</a>
+							</td>
+						</tr>
+						#end
+					#end
+			#else
+					<tr><td style="color:#e00" colspan="15">没有数据</td></tr> 
+			#end
+			
+		</tbody>
+	
+	</table>
+
+</div>
+</div>

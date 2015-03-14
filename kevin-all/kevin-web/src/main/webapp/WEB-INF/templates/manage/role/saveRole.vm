@@ -1,0 +1,14 @@
+#set($level1="角色管理")
+#if ( $app )
+#set($level2="$app")
+#set($level2Url="/apps/detail.htm?app=$app")
+#end
+#set($layout="layout/newLayout.vm")
+<div class="ml20">	
+#set($title_content='角色管理')
+#if($!flag)
+	<p style="height:30px;line-height:30px;font-size:14px;">保存角色成功！<a href="$request.contextPath/manage/role/queryRole.htm">返回</a></p>
+#else
+	<p style="height:30px;line-height:30px;font-size:14px;color:#F00">保存角色失败！<a href="javascript:history.back();">返回</a></p>
+#end
+</div>

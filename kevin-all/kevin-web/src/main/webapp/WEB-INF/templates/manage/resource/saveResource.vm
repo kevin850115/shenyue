@@ -1,0 +1,13 @@
+#set($level1="资源管理")
+#if ( $app )
+#set($level2="$app")
+#set($level2Url="/apps/detail.htm?app=$app")
+#end
+#set($layout="layout/newLayout.vm")
+<div class="ml20">
+	#if($!flag)
+	<p style="height:30px;line-height:30px;font-size:14px;">保存资源成功！<a href="$request.contextPath/manage/resource/queryResource.htm">返回</a></p>
+#else
+	<p style="height:30px;line-height:30px;font-size:14px;color:#F00">保存资源失败！<a href="javascript:history.back();">返回</a></p>
+	#end
+	</div>

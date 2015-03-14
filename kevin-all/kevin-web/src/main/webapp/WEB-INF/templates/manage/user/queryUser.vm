@@ -1,0 +1,89 @@
+#set($level1="用户管理")
+#if ( $app )
+#set($level2="$app")
+#set($level2Url="/apps/detail.htm?app=$app")
+#end
+#set($layout="layout/newLayout.vm")
+<div class="ml20">	
+<div class="">
+	<div class="class1 mt10 mb10 p5">
+	<form action="$request.contextPath/manage/user/queryUser.htm" method="post">
+		用户昵称：<input type="text" name="nick" size="20"></input>
+		角色：<select name="roleId">
+            <option value="0" selected></option>
+			#foreach($role in $allRoles)
+                 <option value="$!role.id">$!role.description</option>
+			#end
+        </select>
+		<button type="submit" value="submit">查询</button>&nbsp;
+		<button type="button" onclick="location.href='$request.contextPath/manage/user/addUser.htm'">添加用户</button>
+	</form>
+	</div>
+	<div class="mt10">
+		<span class="fb f18">共<span class="fb red f18">$allUsers.size()</span>个用户</span>
+	</div>
+	<table class="mt10 w tc tb f14">
+		<thead >
+		        <td align='center'>ID</td>
+		        <td align='center'>淘宝昵称</td>
+		        <td align='center'>角色</td>
+		        <td align='center'>应用数($allApps.size())</td>
+		        <td align='center'>是否启用</td>
+		        <td align='center'>上次登录时间</td>
+		        <td align='center'>上次登录IP</td>
+                <td align='center'>操作</td>
+	        </tr>
+		</thead>
+		
+		<tbody>
+			#if($allUsers && $allUsers.size()>0)
+        		#foreach( $user in $allUsers )
+                        <tr onMouseOut="this.style.backgroundColor='#FFFFFF' " 
+			                onMouseOver="this.style.backgroundColor='#FFF0C5'" 
+			                bgcolor="#FFFFFF">		
+        					<td align='center'>$!user.id</td>
+        					<td align='center'>
+								<a href="https://work.alibaba-inc.com/work/search?primarySortField=createtime&primarySortDecending=true&keywords=$userNames.get($user.nick)&type=person" target="_blank">$!user.nick</a>
+									#if ( $emails.containsKey($user.nick) )
+										<br>
+										$emails.get($user.nick).email
+									#end
+							</td>	
+							<td align='center'>
+								#foreach ( $role in $user.roleList )
+								$!role.description<br>
+								#end
+							</td>
+							<td>$!userAppMap.get($user.id)</td>
+							<td align='center'>
+								#if($!user.isEnable())
+									启用
+								#else
+									<font color="red">禁用</font>
+								#end
+							</td>
+							#if ( $user.lastLoginTime )
+							<td align='center'>$calendarUtil.toString($!user.lastLoginTime,"yyyy-MM-dd HH:mm:ss")</td>
+						    <td align='center'>$!user.lastLoginIp</td>
+							#else
+							<td align='center'>从未登陆</td>
+							<td align='center'>从未登陆</td>
+							#end
+							<td class="tc pt5">
+								<a href="/manage/user/editUser.htm?id=$!user.id" target="_self">
+									<img src="/static/images/edit.png" title="编辑"></img>
+								</a>
+								<a onclick="javascipt:if(confirm('您确定要删除该用户吗')){return true;}else{return false;}" href="/manage/user/deleteUser.htm?id=$user.id">
+									<img src="/static/images/delete.gif" title="删除"></img>
+								</a>
+							</td>
+						</tr>
+					#end
+			#else
+				<tr><td style="color:#e00" colspan="15">没有目标数据</td></tr> 
+			#end
+		</tbody>
+	</table>
+
+</div>
+</div>

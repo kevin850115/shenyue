@@ -1,0 +1,880 @@
+/* Head */
+#Head #HeadTop{
+	margin:5px auto 0px;
+	height:60px;
+	
+}
+#Head #HeadTop logo{
+ float:left;
+ }
+ 
+ 
+#QuickLinks1 {
+	overflow: hidden;
+	float:right; 
+	margin-top:3px;
+	text-align:right;
+	width:500px;
+	
+}
+#QuickLinks1 ul {
+	float: right;
+	margin:0px;
+	padding:0px;
+	list-style-type:none;
+}
+#QuickLinks1 ul li{
+	float: left;
+	margin-left:10px;
+	line-height: 21px;
+}
+#QuickLinks1 li a:link, #QuickLinks1 li a:visited {
+	font-style:normal;
+	font-weight:normal;
+	font-size: 12px;
+	color:#04d;
+}
+#QuickLinks1 li a:hover, #QuickLinks1 li a:active {
+	color:#e60;
+}
+#QuickLinks1 li.HasMsgWW, #QuickLinks1 li.HasMsgMail {
+	background:url(http://pics.taobao.com/bao/album/sys/misc/header_msg_ww.gif) left center no-repeat;
+	padding-left:18px;
+	color:#390;
+	font:bold 9px Arial;
+	padding-top: 4px;
+}
+/** for firefox */
+#QuickLinks li[class=HasMsgWW], #QuickLinks li[class=HasMsgMail] {
+	padding-top: 2px !important;
+}	
+#QuickLinks li.HasMsgMail {
+	background:url(http://pics.taobao.com/bao/album/sys/misc/header_msg_mail.gif) left center no-repeat;
+}
+
+#Head #QLFrame {
+	width: 500px;
+	height: 25px;
+	float: right;
+	margin: 3px 5px 0 0;
+}
+
+#Head div#Crumb{
+	display: none;
+	text-align: left;
+	font-size: 12px;
+	margin:5px auto 0;
+	width:760px;
+	line-height:20px;
+	height:20px;
+}
+#Head div#Crumb ul{
+	padding-left:5px;
+	width:400px;
+	
+}
+#Head div#Crumb li{
+	float:left;
+	line-height:20px;
+}
+#Head div#Crumb li a{
+	padding-right:15px;
+	display:block;
+	background:url(http://pics.taobao.com/bao/album/sys/misc/pathlinks_level1_seperate_a.gif) right 3px no-repeat;
+}
+#Head div#ChannelMenu{
+	height:53px;
+	margin-top:0px;
+	padding:0px;
+	background:url(../images/top.gif) no-repeat;
+	position:relative;
+}
+#Head div#ChannelMenu #Help{
+	float:right;
+	height:24px;
+	width:75px;
+	background:url(../images/help.gif) no-repeat;
+	line-height:24px;
+	margin-top:13px;
+}
+#Head div#ChannelMenu #Help a{
+	color:#FFFFFF;
+}
+#Head div#ChannelMenu #Menu{
+	margin:0;
+	padding:0;
+	list-style-type:none;
+	height:25px;
+	width:380px;
+	float:left;
+	font-size:14px;
+	position:absolute;
+	top:29px;
+	left:230px;
+}
+#Head div#ChannelMenu #Menu li{
+	float:left;
+	display:block;
+	margin-right:10px;
+	height:25px;
+}
+#Head div#ChannelMenu #Menu li.Opt{
+	background:url(../images/finger.gif) center bottom no-repeat;
+}
+#Head div#ChannelMenu #Menu li.Opt a{
+	color:#FFFF99;
+	font-weight:bold;
+}
+#Head div#ChannelMenu #Menu li a{
+	color:#FFF;
+	font-weight:bold;
+	padding-right:10px;
+	background:url(../images/clearance.gif) top right  no-repeat;
+}
+#HeadTop div#NavBar{
+	float:right; 
+	text-align:right;
+	height:22px;
+	width:500px;
+	margin-top:5px;
+	}
+#HeadTop div#NavBar ul{ margin:0px; padding:0px; list-style-type:none;background:none !important; text-align:center;}
+	#HeadTop div#NavBar ul li{ float:right; margin-left:5px;height:22px; line-height:22px;background:url(http://pics.taobao.com/bao/album/chl/lottery/channelmenu_07.gif) 0 0 no-repeat;width:auto !important;width:60px; }
+	#HeadTop div#NavBar ul li span{ display:block;height:22px;background:url(http://pics.taobao.com/bao/album/chl/lottery/channelmenu_08.gif) right 0 no-repeat;}
+	#HeadTop div#NavBar ul li a{ display:block; padding:0 5px;width:60px;height:22px;}
+	#HeadTop div#NavBar ul li#MyLottery a{background:url(http://pics.taobao.com/bao/album/chl/lottery/channelmenu_09.gif) 5px 40% no-repeat; padding-left:15px; }
+
+/* add by dongbai for head navigation --- begin*/
+
+#Menu {
+	clear:both; 
+	text-align: center;
+	margin: 0 auto;
+	width: 760px;
+}
+ul#TabMenu {
+	margin-left:5px;
+	overflow: hidden;
+	width: 100%;
+}
+ul#TabMenu li{ 
+	margin-right:2px;
+	width:88px;
+	height:28px;
+	float:left; font-size:14px; 
+	font-weight:bold; 
+	line-height:28px; 
+	background:url(http://pics.taobao.com/bao/album/chl/lottery/channelmenu_01.gif) 0 0 no-repeat;
+}
+ul#TabMenu li.Selected{ 
+	background:url(http://pics.taobao.com/bao/album/chl/lottery/channelmenu_03.gif) 0 0 no-repeat;
+}
+ul#TabMenu li span{ 
+	color:#7F0000;
+	width:88px;
+	height:28px;
+	float:left; 
+	background:url(http://pics.taobao.com/bao/album/chl/lottery/channelmenu_02.gif) right 0 no-repeat;
+}
+ul#TabMenu li.Selected span{ 
+	color:white;
+	width:88px;
+	height:28px;
+	float:left; 
+	background:url(http://pics.taobao.com/bao/album/chl/lottery/channelmenu_04.gif) right 0 no-repeat;
+}
+ul#TabMenu li a{
+	display:block; 
+	width:88px;
+	height:28px;
+	cursor:hand;
+	text-decoration:none;
+}
+
+#Menu .SubMenu {
+	width: 760px;
+	background: #E36214 url(http://pics.taobao.com/bao/album/chl/lottery/channelmenu_05.gif) no-repeat left top;
+	overflow: hidden;
+}
+
+#Menu .SubMenu .SubMenuShim{
+	background: url(http://pics.taobao.com/bao/album/chl/lottery/channelmenu_06.gif) no-repeat left bottom;
+	overflow: hidden;
+}
+
+#Menu .SubMenu ul {
+	padding: 0 10px;
+	width: 740px;
+	zoom: 1;
+	overflow:hidden;
+	width: 740px;
+	background: url(http://pics.taobao.com/bao/album/chl/lottery/channelmenu_13.gif) repeat-y center top;
+}
+
+#Menu .SubMenu ul li {
+	float: left;
+	padding: 0 25px;
+	line-height: 30px;
+	background: url(http://pics.taobao.com/bao/album/chl/lottery/channelmenu_11.gif) no-repeat right 8px;
+}                   
+
+#Menu .SubMenu ul li a {
+	line-height: normal;
+	white-space: nowrap;
+	color: #FFFFFF !important;
+}
+
+#Menu .SubMenu ul li.Selected a {
+	padding-left: 12px;
+	background: url(http://pics.taobao.com/bao/album/chl/lottery/channelmenu_12.gif) no-repeat left 2px;
+	color: #F6FF00 !important;
+	font-weight: bold;
+}
+
+/* add by dongbai for head navigation -- end */
+
+/* Content */
+#Content{
+	background:#FFE700 url(../images/backjaune.jpg) repeat-x;
+}
+#Content #TopSide{
+	background:url(../images/main_top.gif) no-repeat;
+	height:9px;
+}
+#Content #BottomSide{
+	clear:both;
+	line-height:9px;
+	height:9px;
+	overflow:hidden;
+	background:url(../images/main_bottom.gif) no-repeat;
+}
+
+
+/* Sidebar 180, Right */
+div.R180 #Main{
+	float:left;
+	margin:0 -190px 0 0;
+	width:560px;
+	padding:10px;
+	padding-top:0px;
+	overflow:hidden;
+	font-family:Arial, Helvetica, sans-serif;
+}
+div.R180 #Container{
+	margin:0 190px 0 0;
+}
+div.R180 #SideBar{
+	float:right;
+	width:180px;
+}
+
+/* Full, Right */
+div.Full #Main{
+	float:left;
+	margin:0;
+	width:740px;
+	padding:0 10px;
+	overflow:hidden;
+	font-family:Arial, Helvetica, sans-serif;
+}
+div.Full #Container{
+	width:740px;
+	text-align:center;
+}
+
+
+/* Main */
+
+
+#Content #Main .SegmentBox{margin-bottom:10px; clear:both;}
+
+#Content #Main #LotteryInfo{
+	height:90px;
+	display:block;
+	margin-bottom:10px;
+	overflow:hidden;
+	position:relative;
+}
+#Content #Main #LotteryInfo p.L1{
+	font-size:20px; 
+	color:#FFFF99; 
+	font-weight:bold; 
+	margin-top:20px;
+}
+#Content #Main #LotteryInfo p.L2{
+	font-size:13px;font-weight:bold; color:#FFF;
+}
+#Content #Main #LotteryInfo p.IniBuy{
+	position:absolute;
+	display:block;
+	height:33px;
+	width:120px;
+	background:url(../images/button_bg.gif) 2px 0 no-repeat;
+	top:29px;
+	right:26px;
+	padding:4px 0 0 0;
+	}
+
+#Content #Main #LotteryInfo p span{ font-size:22px; color:#FFFF99;}
+div.R180 #Main #LotteryInfo{background:url(../images/icon.gif) no-repeat;}
+div.Full #Main #LotteryInfo{background:url(../images/top_icon.gif) no-repeat;}
+
+#Content #Main #LotteryInfo h1{
+	display:block;
+	height:90px;
+	width:98px;
+	float:left;
+	
+}
+#Content #Main #LotteryInfo h1 span{
+	display:none;
+}
+#Content #Main .L3D h1{background:url(../images/big3d.gif) 15px 6px no-repeat;}
+#Content #Main .LP3 h1{background:url(../images/bigp3.gif) 15px 6px no-repeat;}
+#Content #Main .LSsq h1{background:url(../images/bigssq.gif) 15px 6px no-repeat;}
+#Content #Main .LPl3 h1{background:url(../images/bigpl3.gif) 15px 6px no-repeat;}
+#Content #Main .LDxds h1{background:url(../images/bigdxds.gif) 15px 6px no-repeat;}
+#Content #Main .L5X h1{background:url(../images/big5x.gif) 15px 6px no-repeat;}
+#Content #Main .LSsl h1{background:url(../images/bigssl.gif) 15px 6px no-repeat;}
+#Content #Main .LDlt h1{background:url(../images/bigdlt.gif) 15px 6px no-repeat;}
+#Content #Main .Klpk h1{background:url(../images/klpk.gif) 15px 6px no-repeat;}
+#Content #Main .LSfc h1{background:url(../images/sfc.gif) 15px 6px no-repeat;}
+
+#Content #Main h2{
+	height:32px;
+	background:url(../images/ticon.gif) 10px 0px no-repeat;
+	line-height:32px;
+	display:block;
+	position:relative;
+	text-align:left;
+	color:#CC3300;
+	padding-left:42px;
+	font-size:20px;
+}
+#Content #Main h2 span{
+	font-size:12px;
+	font-weight:normal;
+	position:absolute;
+	background:url(../images/daigou.gif) no-repeat;
+	width:350px;
+	height:32px;
+	text-indent:10px;
+	overflow:hidden;
+	top:1px;
+	right:10px;
+	color:#666;
+}
+#Content #Main h2.menubar{
+	background:none;
+	margin-left:0px;
+	padding-left:15px;
+}
+#Content #Main h2 a{
+	display:block;
+	height:32px;
+	line-height:32px;
+	text-align:center; 
+	font-size:16px;
+	font-weight:bold;
+	float:left; 
+}
+#Content #Main h2.menubar a.menu1{
+	background:url(../images/menu1.gif) no-repeat;
+	width:71px; 
+}
+#Content #Main h2.menubar a.menu2{
+	background:url(../images/menu2.gif) no-repeat; 
+	width:100px; 
+	margin-left:3px;
+}
+#Content #Main #Partnership table,#Content #MainPopUp table{
+	width:96%;
+	border:1px #DFDFDF solid;
+	margin-top:8px;
+}
+#Content #Main #Partnership table th,#Content #MainPopUp table th{
+	text-align:center;
+	padding:4px 0px;
+	background:#FFC86C;
+	
+}
+#Content #Main #Partnership table td,#Content #MainPopUp table td{
+	text-align:center;
+	background:#FFF;
+	padding:2px 0;
+	height:20px;
+}
+#Content #Main #Partnership table tr.Pad td,#Content #MainPopUp table tr.Pad td{background:#E1F4FF;}
+
+#Content #Main .Container #LotteryScheme{width:700px;margin:0px; padding:0px; font-size:13px;}
+#Content #Main .Container #LotteryScheme dt{float:left;margin:0;padding:0;width:130px; text-align:right; margin-top:6px; clear:left; font-weight:bold;}
+#Content #Main .Container #LotteryScheme dd{float:left;margin:0;padding:0;width:570px; margin-top:6px; }
+
+
+#Content #Main .Container #WinsList{
+	/*width:100%;*/ height:100px; overflow:auto; border:1px #ccc solid; background:#FFFFCC; font-size:12px; margin:3px 0;}
+#Content #Main .Container #WinsList ul{ margin:0px; padding:0px; list-style-type:none; padding:5px;}
+#Content #Main .Container #WinsList ul li{ float:left; width:96%; height:14px; line-height:14px;}
+
+#Content #MainPopUp .MainTopSide{
+background:url(../images/con_top.gif) no-repeat;
+	height:9px;
+	width:550px;
+	overflow:hidden;}
+#Content #MainPopUp .Container{
+	background:#f3f3f3;
+	width:550px;
+	overflow:hidden;
+	height:auto;
+	}
+#Content #MainPopUp .MainBottomSide{
+	clear:both;
+	line-height:9px;
+	height:9px;
+	overflow:hidden;
+	background:url(../images/con_bottom.gif) no-repeat;
+	width:550px;
+}
+#Content #MainPopUp .Paragraph{
+	margin:10px auto; 
+	width:550px;
+}
+#Content #MainPopUp .Paragraph p{
+	margin:5px 0;
+	padding:0 10px;
+}
+ #Content #MainPopUp h2{padding-left:15px;  display:block; height:20px; line-height:20px;}
+#Content #MainPopUp h2 span{ font-size:12px; font-weight:normal;}
+#Content #MainPopUp h2 span strong{ color:#FF6600;}
+#Content #MainPopUp .Successes{line-height:16px; height:16px; padding-right:15px; text-align:right; margin-left:10px;}
+
+div.R180 #Main .Container{
+	background:#f3f3f3;
+	width:550px;
+	overflow:hidden;
+	height:auto;
+}
+div.Full #Main .Container{
+	width:740px;
+	background:#f3f3f3;
+	overflow:hidden;
+	height:auto;}
+
+
+div.R180 #Main .MainTopSide{
+	background:url(../images/con_top.gif) no-repeat;
+	height:9px;
+	width:550px;
+	overflow:hidden;
+}
+div.R180 .MainBottomSide{
+	clear:both;
+	line-height:9px;
+	height:9px;
+	overflow:hidden;
+	background:url(../images/con_bottom.gif) no-repeat;
+	width:550px;
+}
+
+
+
+div.Full #Main .MainTopSide{
+	background:url(../images/con_top_f.gif) no-repeat;
+	height:9px;
+	width:740px;
+	overflow:hidden;
+}
+div.Full .MainBottomSide{
+	clear:both;
+	height:9px;
+	overflow:hidden;
+	background:url(../images/con_bottom_f.gif) no-repeat;
+	width:740px;
+}
+
+
+#Content #Main #PartLotTab { margin:0px; padding:0px; list-style-type:none; margin-left:10px; }
+#Content #Main #PartLotTab li{ float:left; width:86px; line-height:27px; text-align:center; height:27px; margin-left:4px; background:url(../images/tab2.gif) no-repeat;}
+#Content #Main #PartLotTab li.P{background:url(../images/tab1.gif) no-repeat; color:#FFFF99; font-weight:bold;}
+
+#Content #Main a:link,#Content #Main a:visited  {color:#AD471B;text-decoration: none;}
+#Content #Main a:hover,#Content #Main a:active{text-decoration: underline; color:#FF6600;}
+/*AdminToolbar*/
+div#AdminToolbar{width:520px; background:#fff; margin:10px auto;}
+div#AdminToolbar { border:1px #DEDEDE solid;}
+div#AdminToolbar fieldset { border:none; padding-top:10px;}
+div#AdminToolbar legend{ display:none;}
+
+div#auto_pursue_div fieldset { border:none; padding-top:10px;}
+div#auto_pursue_div .FormRow{ margin-bottom:15px;overflow:hidden; width:100%;}
+div#auto_pursue_div .FormRow label{ display:block; float:left; text-align:lift; width:90px; padding:4px 0 0 0;}
+.must{display: inline; color: #FF6600; font-weight: normal;}
+
+div#AdminToolbar .FormRow{ margin-bottom:15px;overflow:hidden; width:100%;}
+div#AdminToolbar .FormRow label{ display:block; float:left; text-align:right; width:70px; padding:4px 0 0 0;}
+div#AdminToolbar .FormRow .HintMsg{ margin-left:70px;}
+div#AdminToolbar .FormRow .HintMsg p{ color:#666; margin-top:5px;}
+
+div#AdminToolbar .FormRow .ValidateMsg { background:transparent url(../images/delete.png) no-repeat scroll 2px center; margin-left:70px; color:#FF0000; padding:5px 20px;}
+
+div.ValidateInfo{clear:left;width:520px; padding:8px 0; text-align:center;border:1px #DEDEDE solid; background:#fff;  margin:5px auto;}
+div.Put{margin:5px auto; text-align:center; padding:5px 0;}
+div.Put p{color:#999999; margin:5px 0;}
+div.FilterBox{margin-bottom:3px; text-align:left; padding:0 15px;}
+button.PutButton{width:151px; height:32px; padding:2px 20px 0 0;border:none; font-size:14px; font-weight:bold; cursor:pointer;background:url(../images/button.gif) no-repeat;}
+button.MinButton{width:44px; height:20px; border:none; color:#FFF; font-size:12px; cursor:pointer;background:url(../images/min_button.gif) no-repeat;}
+button.KnButton{width:113px; margin:0 5px; height:25px; border:none; font-weight:bold; color:#FFF;padding:1px 13px 0 0; font-size:12px; cursor:pointer;background:url(../images/kn_button.gif) no-repeat;}
+button.msg-agency{width:149px;height:37px;overflow:hidden;vertical-align:middle;border:none;background:url(../images/smsinstead.gif) no-repeat;cursor:pointer;}
+button.msg-agency span{visibility:hidden;}
+a.create-msg{margin-left:5px;color:#00f;text-decoration:underline;cursor:pointer;}
+button.submit-pay{width:149px;height:37px;overflow:hidden;vertical-align:middle;border:none;background:url(../images/submitproj.gif) no-repeat;cursor:pointer;}
+button.submit-pay span{visibility:hidden;}
+
+/* SideBar */
+#Content #SideBar{
+	padding:10px;
+	padding-top:0px;
+	width:180px;
+	overflow:hidden;
+}
+#Content #SideBar .SideTopSide{
+	background:url(../images/side_top.gif) no-repeat;
+	height:10px;
+	width:180px;
+	overflow:hidden;
+}
+#Content #SideBar .SideBottomSide{
+	clear:both;
+	line-height:10px;
+	height:10px;
+	overflow:hidden;
+	background:url(../images/side_bottom.gif) no-repeat;
+	width:180px;
+}
+#Content #SideBar .SideBox{
+	margin-bottom:10px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+#Content #SideBar .SideBox .SideContent{
+	background:#FFFF99;
+	padding:0 8px;
+}
+#Content #SideBar .SideBox .SideContent h3{
+	margin:0 0 5px 0;
+	padding:0;
+	background:none;
+	border:none;
+	color:#AD1B0E;
+	font-size:13px;
+}
+#Content #SideBar .SideBox .SideContent ul,#Content #SideBar .SideBox .SideContent ol{
+	margin:0;
+	padding:0;
+	list-style-type:none;
+	padding-left:5px;
+}
+#Content #SideBar .SideBox .SideContent ol{
+	background:url(../images/process.gif) no-repeat;
+	margin-left:14px;
+	height:148px;
+}
+#Content #SideBar .SideBox .SideContent ol.process2{
+	background:url(../images/process2.gif) no-repeat;
+}
+#Content #SideBar .SideBox .SideContent ol li{
+	display:none;
+}
+#Content #SideBar .SideBox .SideContent li{
+	list-style-type:none;
+	line-height:150%;
+	background:transparent url(http://pics.taobao.com/bao/album/sys/misc/top_icon.gif) no-repeat scroll 0px 7px;
+}
+#Content #SideBar .SideBox .SideContent li a{
+padding-left:7px;}
+
+#Content #SideBar .WinBoxTop{
+	background:url(../images/win_top.gif) no-repeat;
+	height:32px;
+	line-height:32px;
+	text-align:center;
+	font-weight:bold;
+	color:#B94014;
+	width:180px;
+	overflow:hidden;
+}
+#Content #SideBar .WinNumber{
+	background:#EF8610 url(../images/win_box_bg.gif) no-repeat;
+	height:38px;
+	line-height:38px;
+	text-align:center;
+	font-weight:bold;
+	color:#FFFF99;
+}
+#Content #SideBar .Z3D{
+	font-size:24px;
+}
+#Content #SideBar .SSQ{
+	font-size:14px;
+}
+#Content #SideBar .WinContent{
+	height:auto;
+	background:#EF8610;
+	text-align:center;
+	color:#FFFFFF;
+	padding:5px 8px;
+	line-height:150%;
+}
+
+#Content #SideBar .WinContent table{ background:#F4AB58; }
+#Content #SideBar .WinContent table th{ text-align:center; color:#B94014;}
+#Content #SideBar .WinContent table td{ text-align:center; border-top:1px #EF8610 solid;color:#B94014;}
+#Content #SideBar .WinContent table td span{ color:#FFFF99;}
+
+#Content #SideBar .SideContent table{  }
+#Content #SideBar .SideContent table th{ text-align:center; color:#111;border-bottom:2px #F2D563 solid;  height:20px;}
+#Content #SideBar .SideContent table td{ text-align:left; border-bottom:1px #F2D563 dashed;color:#B94014; height:20px;}
+#Content #SideBar .SideContent table td span{ color:#FF3300;}
+
+
+#Content #SideBar .WinBoxBottom{
+	clear:both;
+	line-height10px;
+	height:10px;
+	overflow:hidden;
+	background:url(../images/win_bottom.gif) no-repeat;
+	width:180px;
+}
+
+/* login */
+#Content .Container h2{
+	margin:0;
+	padding:0;
+	border:none;
+	background:none;
+	font-size:14px;
+	display:block;
+}
+#Content .Login{
+	padding:10px;
+	padding-left:20px;
+
+}
+#Content .Login p{
+	font-size:14px;
+	padding:10px 0;
+	padding-left:42px;
+}
+.Container .Warning{ height:200px; background:#F3F3F3 url(../images/warning.gif) 20px 20px no-repeat;}
+.Container .Error{height:200px; background:#F3F3F3 url(../images/error.gif) 20px 20px no-repeat;}
+.Container .Ok{ height:200px; background:#F3F3F3 url(../images/ok.gif) 20px 20px no-repeat;}
+#Content #Main .Container .Ok h2,#Content #Main  .Container .Warning h2,#Content #Main  .Container .Error h2{padding:30px 10px 0 100px; background:none;}
+#Content .Container .Ok p,#Content .Container .Warning p,#Content .Container .Error p{padding:10px 10px 0 100px;}
+
+/* Tab */
+
+#Play{width:520px; margin:0 auto;}
+#Show{width:518px;border-left:1px #DEDEDE solid; border-bottom:1px #DEDEDE solid;border-right:1px #DEDEDE solid;background:#fff; padding-top:10px; position:relative;}
+
+#Show select{width:400px; margin:0 0 10px 10px;}
+#Show ul{ display:block; margin:0px; padding:0px; list-style-type:none;position:absolute; top:10px; right:30px;}
+#Show ul li{ margin-bottom:5px;}
+
+#Sure{width:502px;border:1px #DEDEDE solid;background:#fff; margin-top:10px; padding:8px;}
+#Sure ul{ margin:0px; padding:0px; list-style-type:none; text-align:center; overflow:hidden;}
+#Sure ul li{ float:left; height:20px; line-height:20px; margin-right:5px;}
+
+#Content #Main #Remind{ padding:10px;}
+
+#tab_selector {
+	margin-top: 10px;
+	overflow: hidden;
+}
+#tab_selector ul{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	overflow: hidden;
+	display:block;
+}
+#tab_selector .Note{
+	background:#FFFFCC; 
+	color:#999999; 
+	margin:0 5px; 
+	padding:0 10px;
+}
+
+#tab_selector ul#tab_level_1{
+	height: 42px;
+	background:url(../images/play_bg.gif) no-repeat;
+	}
+#tab_selector ul#tab_level_1 li {
+	float: left;
+	background:#ccc url(../images/tab_b.gif) no-repeat;
+	margin-top:15px;
+	margin-left:8px;
+	text-align:center;
+	font-size:14px;
+	font-weight:bold;
+}
+#tab_selector ul#tab_level_1 li a{
+	width: 71px;
+	display:block;
+	line-height:27px;
+	height:27px;
+}
+
+#tab_selector ul#tab_level_2{
+	height: 18px;
+	width:518px;
+	background:#FFF;
+	padding:5px 0;
+	}
+#tab_selector ul#tab_level_2 li {
+	float: left;
+	width: 43px;
+	background:#fff;
+	height:18px;
+	margin-left:8px;
+	line-height:16px;
+	text-align:center;
+	background:url(../images/bg001.gif) no-repeat;
+}
+
+#tab_selector .tab_border{width:518px;border-left:1px #DEDEDE solid;border-right:1px #DEDEDE solid;background:#FFF;}
+
+#tab_selector ul#tab_level_2 #auto_sm{width:75px; background:url(images/tab_bg01.gif); font-weight:bold; float:right;margin-right:10px;}
+#tab_selector ul#tab_level_2 #auto_sm a{ color:#690;}
+
+
+/* 第一层tab选中样式 */
+#tab_selector ul#tab_level_1 li.current {
+background:#ccc url(../images/tab_a.gif) no-repeat;
+}
+/* 第二层tab选中样式 */
+#tab_selector ul#tab_level_2 li.current {
+background:#ccc;
+background:url(../images/bg002.gif) no-repeat;
+}
+
+#tab_selector ul#tab_level_2 #auto_sm.current{background:url(images/tab_bg02.gif) no-repeat;}
+
+div#LotteryBulletin{
+	margin:0 0 10px 0;
+	width:180;
+	height:118px;
+	background:url(../images/lottery_bg_042401.gif) 0 0 no-repeat;
+}
+
+div#LotteryBulletin p{
+ color:#b94014;
+ width:180px;
+ text-align:center;
+ line-height:25px;
+ font-size:12px;
+ font-weight:bold;
+}
+div#LotteryBulletin ul{
+	margin:5px 0;
+	padding:0;
+}
+div#LotteryBulletin ul li{
+	float:left;
+	margin:0 8%;
+	list-style-type:none;
+	width:30%;
+	color:#fff600;
+	text-align:center;
+	font-size:24px;
+	font-style:normal;
+	font-weight:bold;
+	font-family:黑体;
+	line-height:28px;
+}
+div#LotteryBulletin ul li em{
+	display:block;
+	font-family:Arial;
+	font-style:normal;
+	border-bottom:1px #ef902b dashed;
+}
+#GotoLotteryBbs{
+	margin:0 0 10px 0;
+	padding:0;
+	width:180px;
+	height:40px;
+	font-size:12px;
+	border:0;
+	background:url(http://pics.taobao.com/bao/album/chl/lottery/lottery_bg_042402.gif) 0 0 no-repeat;
+}
+#GotoLotteryBbs span{
+	display:none;
+}
+
+#Content #Main .LQlc h1{background:url(../images/bigqlc.gif) 15px 6px no-repeat;}
+
+div.StochasticAuto{width:516px; padding:8px;margin-top:8px;}
+div.StochasticAuto .FormRow{
+	margin-top:10px;
+	overflow:hidden;
+	width:100%;
+}
+div.StochasticAuto label{
+display:block;
+float:left;
+padding:0pt;
+text-align:right;
+width:8em;
+height:25px;
+line-height:25px;
+}
+div.StochasticAuto .InputField{
+margin-right:3px;
+}
+div.StochasticAuto .HintMsg{margin-left:7.4em;}
+div.StochasticAuto .HintMsg p{color:#999;margin:0px;}
+
+div.BlueList{width:400px; height:100px;overflow-x:hidden;overflow-y:scroll; border:1px #CCC solid;}
+div.BlueList ol{display:block; }
+div.BlueList ol li{ float:left; width:180px; display:block; padding-left:10px; }
+
+#Supplemental{ border:1px #EEE solid; margin-top:5px;}
+
+#Sure #Supplemental #tab{ padding:0 0 0 5px; margin:0px; border:1px #FFF solid; border-bottom:none; background:#FF9933; clear:both; height:29px;}
+#Sure #Supplemental #tab li{ background:#FFC285; padding:2px 5px; margin:5px 5px 0 0;}
+#Sure #Supplemental #tab li.current{background:#FFE1C2;}
+
+
+#Sure #Supplemental .MagList_th caption{ height:18px; line-height:18px; background:#FFE1C2; color:#666; border-left:1px #FFF solid; border-right:1px #FFF solid;}
+#Sure #Supplemental .MagList_th th{ background:#F8F4B6; color:#666; border:1px #FFF solid; padding-left:5px; height:25px; line-height:25px;}
+
+#Sure #Supplemental .MagList_td {height:220px;overflow-x:hidden;overflow-y:scroll}
+#Sure #Supplemental .MagList_td td{ border-bottom:1px #EEE solid;padding:1px 0;}
+
+#Outcome table{ border-right:1px #ddd solid; border-top:1px #ddd solid; margin:0 10px; width:530px;} 
+#Outcome table td,#Outcome table th{ text-align:center; padding:3px; border-left:1px #ddd solid; border-bottom:1px #ddd solid;background:#FFF; }
+#Outcome table .J{ background:#E1F4FF;}
+#Outcome table .N{ font-weight:bold; color:#AD471B; }
+#Outcome table th{ background:#FFC86C;}
+
+#Sure #Supplemental .MagList_td td{ border-bottom:1px #EEE solid;padding:1px 0;}
+
+#Content #Main .LKlpk h1{background:url(../images/klpk.gif) 15px 6px no-repeat;}
+
+.WinNo_pk{height:65px; background:url(../images/pk_bg.gif) no-repeat;}
+.WinNo_pk ul{ margin:0; padding:0; list-style-type:none;padding:12px 0 0 10px !important; padding:12px 0 0 5px;}
+.WinNo_pk ul li{float:left; width:34px; height:43px; margin-left:5px; text-align:center; font-size:18px; font-weight:bold;}
+.WinNo_pk ul li.s{ background:url(../images/s.gif) no-repeat;}
+.WinNo_pk ul li.h{ background:url(../images/h.gif) no-repeat;}
+.WinNo_pk ul li.c{ background:url(../images/c.gif) no-repeat;}
+.WinNo_pk ul li.d{ background:url(../images/d.gif) no-repeat;}
+.ListNo_pk{height:180px;overflow-x:hidden;overflow-y:scroll; scrollbar-face-color: #F4AB58;scrollbar-arrow-color: #FFFF00;scrollbar-highlight-color: #F4AB58;scrollbar-3dlight-color: #EF8610;scrollbar-shadow-color: #F4AB58;scrollbar-darkshadow-color: #EF8610;scrollbar-track-color: #EF8610;scrollbar-base-color: #F4AB58;}
+
+#zc_new_menu {margin:0 auto;width:760px;position:relative;height:0;text-align:left;}
+#zc_new_menu .bubble {background: transparent url(http://pics.taobao.com/2k6/mkt/new_mall_pop2.gif) no-repeat scroll 0pt 50%;overflow: hidden; position: absolute; top: -30px; left: 340px; text-indent: -9999px; width: 45px; height: 50px;}
+
+.popup-box{position:absolute;z-index:10000;display:none;width:531px;height:326px;overflow:hidden;text-align:left;background:url(http://assets.taobaocdn.com/img/chl/lottery/popup_bg.gif) no-repeat;}
+.popup-box h3{height:28px;margin:0px;padding-left:20px;border:none;line-height:28px;font-size:12px;font-weight:bold;color:#fff;background:none;}
+.popup-box .intro{position:absolute;right:10px;top:40px;width:300px;height:215px;color:#333;line-height:2em;}
+.popup-box input{position:absolute;top:280px;left:190px;width:80px;text-align:center;font-weight:bold;}
+#BtnCacelMsg{left:290px;font-weight:normal;}
+#MsgContent{position:absolute;left:27px;top:108px;width:169px;height:133px;overflow-x:hidden;overflow-y:scroll;border:none;font-size:12px;line-height:19px;color:#b00;background:none;}
+#Mask{position:absolute;z-index:1000;left:0;top:0;width:100%;height:0px;line-height:0px;font-size:0px;background:#999;filter:alpha(opacity=40);opacity:0.4;}

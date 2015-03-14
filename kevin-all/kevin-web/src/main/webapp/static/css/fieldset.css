@@ -1,0 +1,57 @@
+			#container {
+				position: absolute;
+				display: none;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+			}
+			#content {
+				position: relative;
+				margin: 0 auto;
+				margin-top: 150px;
+				width: 600px;
+				height: 300px;
+				padding: 25px;
+				background-color: #fff;
+				border: 1px solid red;
+				z-index: 1002;
+			}
+			#allCheckBoxDiv {
+				position: relative;
+				left: 0;
+				top: 0;
+				width: 600px;
+				height: 25px;
+				padding: 1px;
+				z-index: 1003;
+			}
+			#innerTableDiv {
+				position: relative;
+				left: 0;
+				top: 25;
+				width: 600px;
+				height: 250px;
+				padding: 2px;
+				z-index: 1003;
+			}
+			#buttonDiv {
+				position: relative;
+				left: 0;
+				top: 275;
+				width: 600px;
+				height: 25px;
+				padding: 1px;
+				z-index: 1003;
+			}
+			#alpha {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 1000;
+				background-color: #000;
+				opacity: .60;               /* standard CSS3 style for transparency */
+				-moz-opacity: .60;          /* transparency for older Mozillas */
+			}

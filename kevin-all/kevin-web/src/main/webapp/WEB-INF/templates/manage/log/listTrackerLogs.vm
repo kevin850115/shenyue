@@ -1,0 +1,56 @@
+#set($level1="内部工具")
+#set($level2="Tracker配置")
+#set($level2Url="/manage/log/listTrackerLogs.htm")
+#set($layout="layout/newLayout.vm")
+
+<div class="full">
+	<ul class="ml20 nav nav-tabs" id="myTab">
+		#foreach ($type in $types.keySet())
+    	<li #if ($velocityCount ==1 )class="active" #end><a href="#f_$type" class="f20">$type</a></li>
+		#end
+	</ul>
+	<div class="ml20 tab-content">
+		#foreach ($type in $types.keySet())
+			#set($typeApps = $types.get($type) )
+		<div class="tab-pane #if($velocityCount==1) active #end" id="f_$type">
+			<button class="btn btn-danger white f20 fb">$typeMap.get($type)</button>
+			#foreach( $biz in $bizMap.keySet() )
+			<h4>$biz</h4>
+			<div>
+				#foreach($apps in $bizMap.get($biz))
+					#if ( $biz != "" )
+						#set($app=$apps.get(0))
+						#set($desc=$apps.get(1))
+						#set($appDO = $appMap.get($app))
+						#if ( $appDO && $typeApps.containsKey($appDO.id) )
+						<div class="fl">
+							<div>
+								<a href="/manage/app/listAppLogFiles.htm?app=$app" target="_blank" class="btn btn-success white f16 m5" href="#" #if ( !$existApps.contains($app) ) style="text-decoration:line-through" #end>
+							$app<br>$desc</a>
+							</div>
+						</div>
+						#else
+						<div class="fl"><a href="/manage/app/listAppLogFiles.htm?app=$app" target="_blank"  class="darkgray btn f16 m5" href="#" #if ( !$existApps.contains($app) ) style="text-decoration:line-through" #end>
+							$app<br>$desc</a>
+						</div>
+						#end
+						
+					#end
+				#end
+			</div>
+			<div class="cl"></div>
+			#end
+        </div>
+		#end
+	</div>
+		
+</div><!-- /.container -->
+<script>
+    $('#myTab a').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+    })
+$(function () {
+$('#myTab a:first').tab('show');
+})
+</script>

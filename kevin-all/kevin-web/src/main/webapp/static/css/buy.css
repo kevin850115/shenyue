@@ -1,0 +1,136 @@
+html *{margin:0px;padding:0px;list-style-type:none;}
+body,p,th,td,input,select,textarea{font:normal normal 12px "SimSun";color:#111; font-family:Arial, Helvetica, sans-serif;}
+h1,h2,h3,h4,h5,h6{font-size:14px;}
+table{text-align:left;}
+p{line-height:18px;}
+li{line-height:150%;}
+hr{border:#000 0 solid;border-top:#d1d7dc 1px solid;height:0;}
+img{border:0;}
+address,em{font-style:normal;}
+a:link,a:visited{color:#04d;text-decoration:none;}
+a:hover,a:active{color:#f50;text-decoration:underline;}
+.invisible{display:none;}
+sup{ font-size:11px; color:#390;}
+.H{color:#f30;}
+.G{color:#666;}
+.B{font-weight:bold;}
+
+.PlanList a:link, .PlanList a:visited{
+	color:#111;
+	text-decoration:underline;
+}
+.PlanList a:hover, .PlanList a:active{
+	color:#f60;
+	text-decoration:underline;
+}
+.ListBox{ 
+	position:relative;
+}
+ul.ListTab {
+	display:block; 
+	margin:5px 0;
+	overflow:hidden; 
+	width:678px;
+}
+ul.ListTab li{ 
+	margin-right:5px;
+	float:left;
+}
+.ListTab li a{
+	background:#F5F5F5; 
+	border:1px #D3D3D5 solid; 
+	height:20px;
+	line-height:20px;
+	padding:0 10px;
+	display:block;
+	text-align:center;
+	float:left;
+}
+.ListTab li.Current a{
+	background:#F98F23; 
+	border:1px #DD721E solid; 
+	color:#fff;
+}
+.ListTab li a:link, .ListTab li a:visited{
+	color:#111;
+	text-decoration:none;
+}
+.ListTab li a:hover, .ListTab li a:active{
+	color:#FFF;
+	background:#F98F23;
+	text-decoration:none;
+}
+.Hint{
+	clear:both; 
+	background:#FFFFCC; 
+	padding:5px; 
+	line-height:120%;
+	margin:5px 0;
+}
+.Hint span{
+	margin-right:15px;
+}
+.Other{
+	position:absolute; 
+	top:0; 
+	right:0;
+	width:400px;
+}
+.Other a{ 
+	float:right;
+	margin-left:5px;
+	height:20px;
+	line-height:20px;
+	padding:0 10px;
+	display:block;
+	text-align:center;
+	background:#FEE7B1;
+	border:1px #EAB84E solid;
+} 
+.Other a:link, .Other a:visited{
+	color:#AD471B;
+	text-decoration:none;
+}
+.Other a:hover, .Other a:active{
+	color:#FFF;
+	background:#F98F23;
+	text-decoration:none;
+}
+
+.PlanList{width:678px; overflow:hidden;}
+.PlanList table{ text-align:center;}
+.PlanList table td{ padding:2px 0;}
+.PlanList table thead th{ border-left:1px #fff solid;}
+.PlanList table thead th,.PlanList table tfoot td{ padding:5px 0;background:#BFE7FD;}
+.PlanList table tfoot td{ border-top:1px #fff solid;}
+
+.PlanList .Ball { width:120px; margin-left:-10px;}
+.PlanList .Ball li{display:block; float:left; margin-left:10px;height:22px; width:22px;line-height:22px; font-size:14px; font-weight:bold; color:#fff;background:url(../images/buy/ball.gif) 0 -22px no-repeat;cursor:pointer}
+.PlanList .Ball li.Current{background:url(../images/buy/ball.gif) 0 0 no-repeat;} 
+.Ball a:link, .Ball a:visited{color:#FFF;background:url(../images/buy/ball.gif) 0 -22px no-repeat;text-decoration:none;}
+.Ball a:hover, .Ball a:active{color:#FFF;background:url(../images/buy/ball.gif) 0 0 no-repeat;text-decoration:none;}
+
+.Control a{float:right;margin-right:5px;}
+.Control a{height:20px;line-height:20px;padding:0 10px;display:block;text-align:center; float:right;}
+.Control a{background:#F5F5F5; border:1px #D3D3D5 solid;}
+.PlanList .Control a:link, .PlanList .Control a:visited{color:#111;text-decoration:underline;}
+.PlanList .Control a:hover, .PlanList .Control a:active{color:#FFF;background:#F98F23;text-decoration:none;}
+
+.Zebra td{ background:#E1F4FF;}
+.Confirm{ width:100%; text-align:center; margin:5px auto;}
+.Confirm button{ background:url(../images/buy/confirm.gif) no-repeat; width:134px; height:30px; border:0;padding-left:14px; font-size:14px; font-weight:bold; color:#547508; cursor:pointer;}
+
+.yui-panel .hd{
+	background:url(../images/lottery_bg.gif) repeat-x left -532px;
+	border:1px #fff solid;
+	height:24px;
+	line-height:20px;
+	color:#F60;
+	font-size:14px;
+}
+.yui-panel {background:#FFF;border:2px solid #EF9652;}
+.yui-panel .bd {overflow:hidden;padding:10px;}
+.yui-panel .bd ol{margin-top:10px;}
+.yui-dialog .ft, .yui-simple-dialog .ft {text-align:center;}
+
+.Empty{padding:5px; background:#ffc; margin:5px 0;}

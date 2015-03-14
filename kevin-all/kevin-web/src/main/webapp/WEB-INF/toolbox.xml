@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="GBK"?>
+<toolbox>
+	<tool>
+		<key>calendarUtil</key>
+		<scope>application</scope>
+		<class>com.taobao.util.CalendarUtil</class>
+	</tool>
+</toolbox>

@@ -1,0 +1,15 @@
+#set($level1="内部工具")
+#set($level2="换身份")
+#set($level2Url="/manage/role/changeRole.htm")
+
+#set($layout="layout/newLayout.vm")
+
+<div class="full">
+	#if ($error)
+		<span class="red f20 fb">$error</span>
+	#end
+	<div>
+    <a href="/manage/role/changeRole.htm?nick=test" class="btn btn-large btn-success white f20 fb">换test</a>
+	</div>
+		
+</div><!-- /.container -->

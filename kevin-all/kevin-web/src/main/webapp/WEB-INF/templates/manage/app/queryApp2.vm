@@ -1,0 +1,44 @@
+#set($level1="内部工具")
+#set($level2="应用管理")
+#set($level2Url="/manage/app/queryApp2.htm")
+
+#set($layout="layout/newLayout.vm")
+<div class="ml20">
+	<h4>应用数:<span class="red fb">$total</span></h4>
+</div>
+<div class="ml20 mb10">
+	<a class="btn btn-success f18 white" href="/manage/app/addApp2.htm">添加应用</a>
+</div>
+<div class="full">
+	  <table class="w800 f14 table table-hover table-condensed mb5">
+			<tbody>
+				<tr>
+					<td>创建时间</td>
+					<td>应用</td>
+					<td>Owner</td>
+					<td>操作</td>
+				</tr>
+			#foreach( $month in $apps.keySet() )
+				#set ($isNew = $velocityCount )
+				#set ($listApps = $apps.get($month) )
+				#foreach ( $ap in $listApps )
+				<tr>
+					<td>$calendarUtil.toString($ap.createdTime,"yyyy-MM-dd HH:mm:ss")</td>
+					<td><a  #if ($isNew == 1 ) class="f16 red fb" #end href="/apps/detail.htm?app=$ap.appName" target="_blank">$ap.appName</a></td>
+					<td>
+						#if ( $ap.administrators )
+						<a target="_blank" href="https://work.alibaba-inc.com/work/search?primarySortField=createtime&primarySortDecending=true&keywords=$userNames.get($!ap.administrators)&type=person">$!ap.administrators</a>
+						#end
+					</td>
+					<td>
+						<a onclick="javascipt:if(confirm('您确定要删除该应用吗')){return true;}else{return false;}" href="/manage/app/deleteApp2.htm?appName=$ap.appName">
+							X
+						</a>
+					</td>
+				</tr>
+				#end
+			#end
+			</tbody>
+		</table
+		
+</div><!-- /.container -->

@@ -1,0 +1,215 @@
+		<style type="text/css">
+			#container {
+				position: absolute;
+				display: none;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+			}
+			.popup {
+				position: relative;
+				margin: 0 auto;
+				margin-top:150px;
+				width: 300px;
+				height: 100px;
+				padding:25px;
+				background-color: #fff;
+				border: 1px solid red;
+				z-index: 1002;
+			}
+			#alpha {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 1000;
+				background-color: #000;
+				opacity: .60;               /* standard CSS3 style for transparency */
+				-moz-opacity: .60;          /* transparency for older Mozillas */
+				filter: alpha(opacity=60);
+			}
+		</style>
+<script type="text/javascript">
+	function showAddAppDiv(){
+		jQuery("#updateAppAdminInfo").css("display","none");
+		jQuery("#updateAppContextRoot").css("display","none");
+		jQuery("#addApp").css("display","block");
+		jQuery("#container").css("display","block");
+	}
+	function showUpdateAppAdminInfoDiv(appId, oldAdminInfo){
+		jQuery("#appId_4adminInfoUpdate").attr("value",appId);
+		jQuery("#administrators_update").attr("value",oldAdminInfo);
+		jQuery("#updateAppAdminInfo").css("display","block");
+		jQuery("#addApp").css("display","none");
+		jQuery("#updateAppContextRoot").css("display","none");
+		jQuery("#container").css("display","block");
+	}
+	function showUpdateAppContextRootDiv(appId, oldContextRoot){
+		jQuery("#appId_4contextRootUpdate").attr("value",appId);
+		jQuery("#context_root_update").attr("value",oldContextRoot);
+		jQuery("#updateAppContextRoot").css("display","block");
+		jQuery("#addApp").css("display","none");
+		jQuery("#updateAppAdminInfo").css("display","none");
+		jQuery("#container").css("display","block");
+	}
+	function unalpha(){
+		jQuery("#container").css("display","none");
+	}
+	function addApp(){
+		var appName = jQuery("#newAppName").attr("value");
+		if(appName && appName.length > 0){
+			jQuery("#addAppForm").submit();
+			unalpha();
+		}else{
+			alert("应用名不能为空");
+		}		
+	}
+	function updateAppAdminInfo(){
+		var adminInfo = jQuery("#administrators_update").attr("value");
+		jQuery("#updateAppAdminInfoForm").submit();
+		unalpha();
+	}
+	function updateAppContextRoot(){
+		var contextRoot = jQuery("#context_root_update").attr("value");
+		jQuery("#updateAppContextRootForm").submit();
+		unalpha();
+	}
+</script>
+#set($level1="应用列表")
+#if ( $app )
+#set($level2="$app")
+#set($level2Url="/apps/detail.htm?app=$app")
+#end
+#set($layout="layout/newLayout.vm")
+<div class="ml20">
+<div class="">
+	<div class="">
+		<a href="/manage/app/addApp2.htm" class="btn btn-success fb white f16">添加应用</a>
+	</div>
+
+	<table class="mt10 w tc tb f14">
+		<thead >
+		        <td align='center'>ID</td>
+		        <td align='center'>应用名称</td>
+				<td align='center'>管理员</td>
+				<td align='center'>ContextRoot</td>
+		        <td align='center'>创建时间</td>
+                <td align='center'>操作</td>
+		</thead>
+		
+		<tbody>
+			#if($apps && $apps.size()>0)
+        		#foreach( $app in $apps )
+                        <tr onMouseOut="this.style.backgroundColor='#FFFFFF' " 
+			                onMouseOver="this.style.backgroundColor='#FFF0C5'" 
+			                bgcolor="#FFFFFF">		
+        					<td align='center'>$!app.id</td>
+							<td align='center'>$!app.appName</td>
+							<td align='center'>
+								$!app.administrators &nbsp;&nbsp;&nbsp;
+								<button class="btn darkgray" onclick="showUpdateAppAdminInfoDiv($!app.id, #if($app.administrators) '$!app.administrators' #else '' #end);">编辑</button>
+							</td>
+							<td align='center'>
+								$!app.contextRoot &nbsp;&nbsp;&nbsp;
+								<button class="btn darkgray" onclick="showUpdateAppContextRootDiv($!app.id, #if($app.contextRoot) '$!app.contextRoot' #else '' #end);">编辑</button>
+							</td>
+        					<td align='center'>$calendarUtil.toString($!app.createdTime,"yyyy-MM-dd HH:mm:ss")</td>	
+							<td class="tc pt5">
+								<a onclick="javascipt:if(confirm('您确定要删除该应用吗')){return true;}else{return false;}" href="/manage/app/deleteApp.htm?appName=$app.appName">
+									<img src="/static/images/delete.gif" title="删除"></img>
+								</a>
+							</td>
+						</tr>
+					#end
+			#else
+				<tr><td style="color:#e00" colspan="15">没有目标数据</td></tr> 
+			#end
+		</tbody>
+	</table>
+
+</div>
+	
+<div id="container">
+	<div id="addApp" class="popup">
+		<form id="addAppForm" action="/manage/app/addApp.htm" method="post">
+			${csrfToken.hiddenField}	
+			<table>
+				<tr>
+					<td>应用名</td>
+					<td>
+						<input id="newAppName" name="newAppName" type="text" size="20"/>
+					</td>
+				</tr>
+				<tr>
+					<td>管理员</td>
+					<td>
+						<input id="administrators_insert" name="administrators_insert" type="text" size="20"/>
+					</td>
+				</tr>
+				<tr>
+					<td>ContextRoot</td>
+					<td>
+						<input id="context_root_insert" name="context_root_insert" type="text" size="20"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="button" id="commit" style="width:60px;height:30px;" onclick="addApp();" value="提交"/>
+					</td>
+					<td>
+						<input type="button" id="cancel" style="width:60px;height:30px;" onclick="unalpha();" value="取消"/>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div id="updateAppAdminInfo" class="popup">
+		<form id="updateAppAdminInfoForm" action="/manage/app/updateAppAdminInfo.htm" method="post">
+			${csrfToken.hiddenField}	
+			<table>
+				<tr>
+					<td>管理员</td>
+					<td>
+						<input id="administrators_update" name="administrators_update" type="text" size="20"/>
+						<input type="hidden" id="appId_4adminInfoUpdate" name="appId_4adminInfoUpdate" value=""/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="button" id="commit" style="width:60px;height:30px;" onclick="updateAppAdminInfo();" value="提交"/>
+					</td>
+					<td>
+						<input type="button" id="cancel" style="width:60px;height:30px;" onclick="unalpha();" value="取消"/>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div id="updateAppContextRoot" class="popup">
+		<form id="updateAppContextRootForm" action="/manage/app/updateAppContextRoot.htm" method="post">
+			${csrfToken.hiddenField}	
+			<table>
+				<tr>
+					<td>ContextRoot</td>
+					<td>
+						<input id="context_root_update" name="context_root_update" type="text" size="20"/>
+						<input type="hidden" id="appId_4contextRootUpdate" name="appId_4contextRootUpdate" value=""/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="button" id="commit" style="width:60px;height:30px;" onclick="updateAppContextRoot();" value="提交"/>
+					</td>
+					<td>
+						<input type="button" id="cancel" style="width:60px;height:30px;" onclick="unalpha();" value="取消"/>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div id="alpha">
+	</div>
+</div>
+</div>

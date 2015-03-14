@@ -1,0 +1,90 @@
+#set($level1="添加用户")
+#if ( $app )
+#set($level2="$app")
+#set($level2Url="/apps/detail.htm?app=$app")
+#end
+#set($layout="layout/newLayout.vm")
+<div class="ml20">	
+<div class="mt10">
+<form action="$request.contextPath/manage/user/saveUser.htm" method="post" onsubmit="return Check();">
+    <input type="hidden" name="id" value="$!user.id"></input>
+	 <table class="f14 ">
+        <tr>
+			<td class="pr20">淘宝昵称</td>
+			<td>
+				<input type="text" name="nick" id="nick" size="10" onblur="CheckNotNull(this,'labelNick')"></input><label id="labelNick"></label>
+			</td>
+		</tr>
+		<tr>
+			<td>职位</td>
+			<td>
+<input type="text" name="title" id="title" size="10" onblur="CheckNotNull(this,'labelTitle')"><label id="labelTitle"></label></input>
+			</td>
+		</tr>
+		<tr>
+			<td>是否启用</td>
+			<td>
+				是<input type="radio" name="enable" value="1" checked="true">
+			     否<input type="radio" name="enable" value="0">
+			</td>
+		</tr>
+		<tr>
+			<td>角色列表</td>
+			<td>
+				<div id="list">
+            	#foreach($role in $allRoles)
+            		<input type="checkbox" name="roleId" value="$!role.id"><b>$!role.description</b></input>
+					#if ( $velocityCount % 5 == 0 )
+						<br/>
+					#end
+            	#end
+                </div>	
+			</td>
+		</tr>
+        <tr style="padding-top:3px;"></tr>
+		<tr>
+			<td valign="top" >添加应用</td>
+			<td>
+				<div id="list">
+            	#foreach($app in $apps)
+            		<input type="checkbox" name="roleapp" value="$!app.appName"><b>$!app.appName</b></input>
+					#if ( $velocityCount % 5 == 0 )
+						<br/>
+					#end
+            	#end
+                </div>	
+			</td>
+		</tr>
+		<tr>
+			<td>
+			    <button type="submit" value="submit">保存</button>
+			</td>
+		</tr>
+	</table>
+</form>
+
+</div>
+<script type="text/javascript">
+	function Check()
+	{
+		if (!CheckNotNull(document.getElementById("nick"),'labelNick')) 
+		{
+			return false;
+		}
+		if (!CheckNotNull(document.getElementById("name"),'labelName')) 
+		{
+			return false;
+		}
+		if (!CheckNotNull(document.getElementById("title"),'labelTitle')) 
+		{
+			return false;
+		}
+		if (!CheckNum(document.getElementById("sort"),'labelSort'))
+		{
+			return false;	
+		}
+		return true;
+	}
+</script>
+</div>
+</div>

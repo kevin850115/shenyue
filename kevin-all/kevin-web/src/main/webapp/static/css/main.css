@@ -1,0 +1,310 @@
+/* layout css */
+body {
+	background-color: #E8E8CE;
+	color: #333333;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial,
+		sans-serif;
+	font-size: 12px;
+	margin: 0;
+	padding: 0;
+}
+
+.hack-float {
+	clear: both;
+}
+
+a {
+	text-decoration: none;
+	color: #FE8E00;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.error-message {
+	color: red;
+}
+
+#wrapper {
+	width: 860px;
+	margin: 10px auto;
+	padding: 20px;
+	background-color: #FFFFFF;
+}
+
+#head {
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 100px;
+	text-align: center;
+}
+
+/*index page css*/
+#selector-query {
+	background-color: #E0E0C6;
+	margin: 0 100px;
+	padding: 10px;
+}
+
+#selector-query h2,#selector-shortcut h2 {
+	font-size: 14px;
+}
+
+#selector-query dl {
+	clear: both;
+	border: 1px solid #E0E0C6; /* hack for ie*/
+	margin: 0;
+	height: 30px;
+}
+
+#selector-query dd {
+	margin: 0;
+	width: 100px;
+	float: left;
+}
+
+#selector-query dt {
+	width: 330px;
+	float: left;
+}
+
+#selector-query #submit-btn {
+	text-align: center;
+}
+
+#selector-query #submit-btn button {
+	height: 30px;
+}
+
+#result-list {
+	width: 100%;
+	border-collapse: collapse;
+	line-height: 30px;
+	text-align: center;
+}
+
+#result-list caption {
+	text-align: left;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 50px;
+}
+
+#result-list thead {
+	background-color: #FE8E00;
+	color: white;
+}
+
+#result-list .zebra {
+	background-color: #ECEEEC;
+}
+
+#result-list .not-the-same {
+	background-color: #3C82DC;
+	color: white;
+	font-weight: bold;
+}
+
+#result-list .not-the-same a.not-same {
+	text-decoration: none;
+	color: red;
+}
+
+#result-list .not-the-same a.not-same:hover {
+	text-decoration: underline;
+}
+
+#result-list tfoot {
+	text-align: right;
+	color: grey;
+}
+
+#foot {
+	margin-top: 50px;
+	text-align: right;
+	color: grey;
+	line-height: 50px;
+}
+
+/* not same page css */
+#issue-show{
+	float:left;
+	width:260px;
+}
+#lucky-number-show{
+	text-align:right;
+	float:left;
+	width:590px;
+}
+#not-same-list {
+	margin-top:10px;
+	clear: both;
+	width: 100%;
+	border-collapse: collapse;
+	line-height: 30px;
+	text-align: center;;
+	width: 100%;
+}
+
+#not-same-list caption {
+	text-align: left;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 50px;
+}
+
+#not-same-list caption #dis-same {
+	color: red;
+}
+
+#not-same-list thead {
+	background-color: #FE8E00;
+	color: white;
+}
+
+#not-same-list tfoot {
+	text-align: right;
+	color: grey;
+}
+
+#not-same-list .zebra {
+	background-color: #ECEEEC;
+}
+
+#not-same-list .not-the-same {
+	background-color: #3C82DC;
+	color: white;
+	font-weight: bold;
+}
+
+#not-same-list .not-the-same a.not-same {
+	text-decoration: none;
+	color: red;
+}
+
+#not-same-list .not-the-same a.not-same:hover {
+	text-decoration: underline;
+}
+
+#not-same-list .pre-tax {
+	background-color: #3D72A6;
+	color: white;
+	font-weight: bold;
+}
+
+#not-same-list .after-tax {
+	background-color: #3C82DC;
+	color: white;
+	font-weight: bold;
+}
+
+/* managerIssue page css*/
+#stop-issue {
+	background-color: #E0E0C6;
+	margin: 20px;
+	padding: 10px;
+}
+
+#stop-issue ul {
+	list-style-type: none;
+	text-align: center;
+}
+
+#stop-issue ul li {
+	padding: 10px;
+}
+
+#stop-issue ul textarea {
+	width: 200px;
+	height: 100px;
+}
+
+#stop-issue ul li p {
+	color: red;
+}
+
+#lucky-number {
+	background-color: #E0E0C6;
+	margin: 20px;
+	padding: 10px;
+}
+
+#lucky-number #spider {
+	margin: 30px 10px;
+	text-align: center;
+}
+
+#lucky-number #spider div {
+	margin: 30px 0;
+}
+
+#lucky-number #spider #spider-one,#lucky-number #spider #spider-two {
+	width: 40%;
+	float: left;
+}
+
+#lucky-number ul {
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;
+	overflow: hidden;
+	text-align: center;
+}
+
+#lucky-number ul li {
+	padding: 10px;
+}
+
+#lucky-number ul li span {
+	color: red;
+}
+
+#floating-prize {
+	background-color: #E0E0C6;
+	margin: 20px;
+	padding: 10px;
+}
+
+#floating-prize ul {
+	list-style-type: none;
+	text-align: center;
+}
+
+#floating-prize ul li {
+	padding: 10px;
+}
+
+/** add lucky number confirm page **/
+#lucky-number-confirm {
+	background-color: #E0E0C6;
+	margin: 20px;
+	padding: 10px;
+}
+
+#lucky-number-confirm #message {
+	color: red;
+	text-align: center;
+	font-weight: blod;
+}
+
+#lucky-number-confirm ul {
+	list-style-type: none;
+	text-align: center;
+}
+
+#lucky-number-confirm ul li {
+	padding: 10px;
+}
+
+#selector-query textarea{
+	font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial,
+		sans-serif;
+	font-size: 12px;
+}
+
+#result-list textarea{
+	font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial,
+		sans-serif;
+	font-size: 12px;
+}

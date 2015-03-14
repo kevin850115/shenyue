@@ -1,0 +1,27 @@
+#set($level1="错误")
+#set($layout="layout/newLayout.vm")
+<div class="ml20 mt20">	
+
+<div id="errormsg" style="color:red;" class="f20">
+#if ( $excep )
+	系统有异常
+	<br>
+#end
+		$!request.getParameter("error")
+		#if ( $error)
+			<br>
+			$error
+		#end
+</div>
+<div class="mt20">
+	
+	#if ( $stacks )
+		<hr>
+		<h4>异常堆栈</h4>
+		#foreach ( $st in $stacks )
+			<span class="#if ($st.toString().contains("ateye") ) green f16 #else f14 #end">at $st</span><br>
+		#end
+	#end
+</div>
+
+</div>

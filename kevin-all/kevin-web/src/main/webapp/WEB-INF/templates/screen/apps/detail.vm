@@ -1,0 +1,75 @@
+#set($level1="应用专区")
+#if ( $app )
+#set($level2="$app")
+#set($level2Url="/apps/detail.htm?app=$app")
+#end
+#set($layout="layout/newLayout.vm")
+
+#set ( $nk = $!{request.getAttribute("role_nick")} )
+#if ( $app )
+<div class="full">
+	<h2>当前应用:<span class="red fb">$app</span><a href="/machine/opsList.htm?app=$app" class="ml10 green f20 fb">[$machines.size()]</a>
+		<a target="_blank" class="ml50 btn btn-danger fn f18 white" href="/rep/repList.htm?app=$app">查看日报</a>
+		<a target="_blank" class="ml5 btn darkgray fn f18" href="/hubmonitor/alarmAppHistoryLog.htm?appName=$app">KV报警历史</a>
+	</h2>
+</div>
+<hr>
+<div class="full">
+	<h3>应用控制</h3>
+	<a href="/beanfield/beanfieldDimension2.htm?app=$app" class="mr10 btn f20 btn-large btn-primary white unl">动态开关</a>
+	<a href="/invoker/invokerDimension2.htm?app=$app" class="mr10 btn f20 btn-large btn-primary white unl">方法调用</a>
+	<a href="/beanfield/listAllSwitchesOfAnApp2.htm?app=$app" class="mr10 btn f20 btn-large btn-info white unl">批量设置开关</a>
+	<a href="/invoker/listAllInvokersOfAnApp2.htm?app=$app" class="mr10 btn f20 btn-large btn-info white unl">批量方法调用</a>
+	<a href="/appcron/appcronlist2.htm?app=$app" class="mr10 btn f20 btn-large btn-warning white unl">时间程序管理</a>
+	<a href="/logLevel/queryAppMachinesList2.htm?app=$app" class="mr10 btn f20 btn-large btn-success white unl">日志级别调整</a>
+</div><!-- /.container -->	
+<hr>
+<div class="full">
+	<h3>监控</h3>
+	<a href="/monitor/exceptionList.htm?app=$app" class="mr10 btn f20 btn-large btn-danger white unl">[分类]实时异常</a>
+	<a href="/monitor/overview.htm?app=$app" class="mr10 btn f20 btn-large btn-danger white unl">[逐条]实时异常</a>
+	<a href="/hubmonitor/sqlmap.htm?app=$app" class="mr10 btn f20 btn-large btn-success white unl">SqlMap</a>
+	<a href="/hubmonitor/monitorLog.htm?app=$app" class="mr10 btn f20 btn-large btn-success white unl">KV埋点</a>
+	<a href="/hubmonitor/hsfMonitorLog.htm?app=$app" class="mr10 btn f20 btn-large btn-success white unl">HSF</a>
+	<a href="/hsfgraph/graphApp.htm?app=$app" class="mr10 btn f20 btn-large darkgray unl">HSF关系图</a>
+	<a href="/ops/threadOpsList.htm?app=$app" class="mr10 btn f20 btn-large darkgray unl">查看线程</a>
+	<a href="/monitor/memwatch.htm?app=$app" class="mr10 btn f20 btn-large darkgray unl">容器监控</a>
+	<a href="/ops/envOpsList.htm?app=$app" class="mr10 btn f20 btn-large darkgray unl">系统变量</a>
+</div><!-- /.container -->
+<hr>
+<div class="full">
+	<h3>外部系统</h3>
+	<a href="http://eagleeye.taobao.net:9999/AppDetail?query=$app" class="mr10 btn f20 btn-large btn-success white unl" target="_blank">EagleEye</a>
+</div>
+<hr>
+<div class="full">
+	<h3>设置</h3>
+	<a href="/manage/app/updateAdmin.htm?app=$app" class="mr10 btn f20 btn-large darkgray unl">修改管理员</a>
+	<a href="/logpath/logPathList2.htm?app=$app" class="mr10 btn f20 btn-large darkgray unl">日志采集设置</a>
+	#if ( $nk == "秦冲" )
+	<a href="/manage/app/listAppLogFiles.htm?app=$app" class="mr10 btn f20 btn-large btn-info white unl">实时日志列表 </a>
+	#end
+	<a href="/machine/opsList.htm?app=$app" class="mr10 btn f20 btn-large darkgray unl">机器列表</a>
+	#if ( $!{request.getAttribute("env_type")} != '线上环境' )
+	<a href="/machine/showOps.htm?app=$app" class="mr10 btn f20 btn-large darkgray unl">添加机器</a>
+	#else
+	<a class="mr10 btn f20 btn-large darkgray unl" href="/machine/opsSync.htm?app=$app">同步机器列表</a>
+	#end
+</div><!-- /.container -->	
+<hr>
+<div class="full">
+	<h3>操作记录</h3>
+	<a href="/audit/opHistory2.htm?appName=$app&type=0" class="mr10 btn f20 btn-large darkgray unl">开关操作日志</a>
+	<a href="/audit/opHistory2.htm?appName=$app&type=1" class="mr10 btn f20 btn-large darkgray unl">方法调用日志</a>
+	<a href="/audit/opHistory2.htm?appName=$app&type=2" class="mr10 btn f20 btn-large darkgray unl">时间程序操作日志</a>
+	<a href="/audit/opHistory2.htm?appName=$app&type=3" class="mr10 btn f20 btn-large darkgray unl">日志级别调整日志</a>
+</div>
+<div class="full">
+	<h3>其他</h3>
+	<a href="/tracker/detail.htm?app=$app" class="mr10 btn f20 btn-large darkgray unl">Tracker抓取情况</a>
+</div>
+#else
+<div class="full">
+	<h2><span class="red fb">无此应用</span></h2>
+</div>
+#end

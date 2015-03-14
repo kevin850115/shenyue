@@ -1,0 +1,13 @@
+#set($level1="用户管理")
+#if ( $app )
+#set($level2="$app")
+#set($level2Url="/apps/detail.htm?app=$app")
+#end
+#set($layout="layout/newLayout.vm")
+<div class="ml20">	
+#if($!flag)
+删除用户成功！
+#else
+删除用户失败！
+#end
+</div>

@@ -1,0 +1,73 @@
+#set($level1="内部工具")
+#set($level2="应用日志列表")
+#set($level2Url="/manage/app/listAppLogFiles.htm?app="+$app)
+#if ( $app)
+	#set ($level3=$app)
+#end
+#set($layout="layout/newLayout.vm")
+<div class="full">
+	<div class="class1 w300 p5">
+		注:显示时间为文件的最新更新时间
+	</div>
+	<div class="mt10">
+		<a class="btn btn-success white f20" href="/tracker/detail.htm?app=$app">点击查看Tracker收集情况</a>
+	</div>
+ <table class="w mt20 table table-hover table-condensed mb5 f14">
+		<tr>
+			<td>ip/文件</td>
+			#foreach($file in $files)
+				<td title="$file">
+				#set ($str = $file.substring($file.lastIndexOf("/")) )
+				#if ( $str.length() > 25 )
+				#set ( $st = $str.length() - 25 )
+					$str.substring(0,25)
+				#else
+					$str
+				#end
+				<br>
+				#if ( $cfiles.contains($file) )
+					<span class="badge badge-info">采集中</span> <a onclick="javascipt:if(confirm('您确定要删除日志收集吗?')){return true;}else{return false;}" href="/manage/app/deleteAppLogFiles.htm?app=$app&file=$file">x</a>
+				#else
+					#set ($types = $fileTypes.get($file) )
+					#if ( $types.contains(20) )
+					<a class="btn btn-warning white f14 btn-small" href="/manage/app/addAppLogFiles.htm?app=$app&file=$file&version=20">添加采集(旧格式)</a>
+					#end
+					#if ( $types.contains(30) )
+					<a class="btn btn-warning white f14 btn-small" href="/manage/app/addAppLogFiles.htm?app=$app&file=$file&version=30">添加采集(新格式)</a>
+					#end
+					#if ( $types.contains(1) )
+					<a class="btn btn-warning white f14 btn-small" href="/manage/app/addAppLogFiles.htm?app=$app&file=$file">添加采集</a>
+					#end
+				#end
+				</td>
+			#end
+		</tr>
+		#foreach($ent in $results.entrySet())
+			#set ($ip = $ent.key)
+			#set ($mm = $ent.value)
+			#set ($modiMap = $modified.get($ip))
+			<tr>
+				<td>$ip</td>
+				#foreach($file in $files)
+					#set ($status = $mm.get($file) )
+					<td #if ( $status != "0" ) style="background:green" class="white fb" #else style="background:red" class="white fb" #end>
+						#if ( $status == "1" )
+							有
+						#elseif ($status == "0" )
+							无
+						#elseif ( $status == "20")
+							有:旧格式
+						#elseif ( $status == "30")
+							有:新格式
+						#end
+						#if ( $modiMap )
+							<br>
+							<span class="f12">$!modiMap.get($file)</span>
+						#end
+					</td>
+				#end
+			</tr>
+		#end
+	</table>
+		
+</div><!-- /.container -->

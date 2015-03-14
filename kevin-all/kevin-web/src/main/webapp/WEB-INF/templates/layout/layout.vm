@@ -1,0 +1,301 @@
+#* 一下注释是为了将变量与它的类型关联起来写的，为了方便使用对象的时候知道它是哪个类，请不要随意删除 *#
+#* @vtlvariable name="request" type="javax.servlet.http.HttpServletRequest" *#
+#* @vtlvariable name="randomUtil" type="com.taobao.util.RandomUtil" *#
+#* @vtlvariable name="dateUtils" type="com.taobao.util.DateUtils" *#
+#* @vtlvariable name="tbStringUtil" type="com.taobao.util.TBStringUtil" *#
+#* @vtlvariable name="constant" type="com.alibaba.service.pull.LangToolSet" *#
+#*#set($page_title="") ref="设置页面的title"*#
+#*#set($layout="") ref="设置页面的布局模板" *#
+#*#set($screen_content="") ref="设置页面布局模板内容" *#
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title>Ateye - $!{title_content}</title>
+<link rel="stylesheet" href="$request.contextPath/static/css/layout.css"></link>
+<script type="text/javascript" src="$request.contextPath/static/js/jquery/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="$request.contextPath/static/js/jquery/jquery-ui-1.8.11.custom.js"></script>
+<script type="text/javascript" src="$request.contextPath/static/js/jquery/jquery.validate.min.js"></script>
+<script type="text/javascript" src="$request.contextPath/static/js/jquery/jquery.pager.js"></script>
+<script type="text/javascript" src="$request.contextPath/static/js/jquery/jquery-calendar.js"></script>
+<script type="text/javascript" src="$request.contextPath/static/js/checkform.js"></script>
+<script type="text/javascript" src="$request.contextPath/static/js/ateye_tip.js"></script>
+<script type="text/javascript" src="$request.contextPath/static/js/util.js"></script>
+<script type="text/javascript" src="$request.contextPath/static/js/swfobject.js"></script>
+<script type="text/javascript" src="$request.contextPath/static/js/amcharts.js"></script>
+<script type="text/javascript" src="$request.contextPath/static/js/raphael.js"></script>
+<script type="text/javascript" src="$request.contextPath/static/js/json2.js"></script>
+<script type="text/javascript" src="$request.contextPath/static/js/http.js"></script>
+
+
+<link rel="stylesheet" href="$request.contextPath/static/css/jquery.pager.css"></link>
+<link rel="stylesheet" href="$request.contextPath/static/css/jquery-ui-1.8.11.custom.css"></link>
+<link rel="stylesheet" href="$request.contextPath/static/css/base.css"></link>
+<link rel="stylesheet" href="$request.contextPath/static/css/grid.css"></link>
+<link rel="stylesheet" href="$request.contextPath/static/css/index.css"></link>
+<link rel="stylesheet" href="$request.contextPath/static/css/calender/jquery-calendar.css"></link>
+<link rel="stylesheet" href="$request.contextPath/static/css/fieldset.css"></link>
+
+<!-- Bootstrap -->
+<link rel="stylesheet" href="$request.contextPath/static/css/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="$request.contextPath/static/css/bootstrap/base.css">
+
+<script type="text/javascript" src="$request.contextPath/static/js/highcharts/highcharts.js"></script>
+<script type="text/javascript" src="$request.contextPath/static/js/highcharts/modules/exporting.js"></script>
+<script type="text/javascript" src="$request.contextPath/static/js/highcharts/themes/grid.js"></script>
+
+<!-- Bootstrap -->
+<script type="text/javascript" src="$request.contextPath/static/js/bootstrap/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+	var index="";
+	function initMenu(){
+		jQuery("#left a").each(function(){
+         var v = jQuery(this).attr("href");
+		 var position=v.indexOf("/",1);
+		 if(position==-1){
+		 	position=v.length;
+		 }
+         var did = v.substr(0,position);
+	   //	 var did=v;//alert("did === "+did+" v======"+v);
+		 var aim=jQuery("#url").val();//alert("aim======"+aim);
+		 if(did!=""&&aim!=""&& did==aim && v!="/index.htm"){
+			jQuery(this).parent().parent().show('normal');
+			//jQuery(this).parent().css({ "background": "#00CD00" });
+			index="ok";
+		 }
+     }); 
+    	jQuery(function(){
+			var aim=jQuery("#url").val();
+			if(index!="ok"&&aim!="/index.htm"){
+		 	jQuery("#special").show('normal');
+		 }
+		});
+		jQuery(".menu").click(
+			function(){
+				var jQuerymenuChild = jQuery(this).next();
+				if(jQuerymenuChild.is('div') && jQuerymenuChild.is(':visible')){
+					jQuerymenuChild.hide('normal');
+					return false;//防止类似标签<a>的链接
+				}
+				if(jQuerymenuChild.is('div') && (!jQuerymenuChild.is(':visible'))){
+					jQuery('.menuChild:visible').hide('normal');
+					jQuerymenuChild.show('normal');
+					return false;
+				}
+			}
+		);
+		
+		jQuery(".split_button").click(
+			function(){
+				var jQueryleft = jQuery(".left");
+				
+				if(jQueryleft.is('div') && jQueryleft.is(':visible')){
+					jQueryleft.hide('normal');
+					jQuery(".split_button").css("background", "url(images/split_open.gif) no-repeat center");
+					return false;
+				}
+				if(jQueryleft.is('div') && (!jQueryleft.is(':visible'))){
+					jQuery('.left:visible').hide('normal');
+					jQueryleft.height(jQuery(window).height()-110);//防止浏览器右侧按钮闪动  
+					jQueryleft.show('normal');
+					jQuery(".split_button").css("background", "url(images/split_close.gif) no-repeat center");
+					return false;
+				}
+			});
+	}
+	
+	function initContentSize(){
+		jQuery(".content").height(jQuery(window).height()-110);//用jQuery(document).height()-100 在IE下尺寸不对
+	}
+	
+	jQuery(function(){
+		initContentSize();		
+		initMenu();
+		
+		
+
+	});
+	function accountWarn()
+	{
+		#if(${request.getAttribute("security_message")})
+			alert("${request.getAttribute("security_message")}");
+		#end
+	}
+</script>
+</head>
+
+<body onload="accountWarn();">
+<div class="mainBody" >
+	<div style="padding-left:150px;padding-top:5px;padding-bottom:5px;background-color:#1D7FA7">
+       #* ${request.getSession().getAttribute("springsecurity_name")}
+        ${request.getUserPrincipal().getName()},
+        ${request.getSession().getAttribute("SPRING_SECURITY_LAST_USERNAME")}*#
+        亲, $!{request.getAttribute("ateye_nick")}，欢迎来到Ateye $!{request.getAttribute("env_type")} <span id="loginout"><a href="$!{loginoutUrl}?BACK_URL=$!{ateyeUrl}" style="margin-left:10px;">退出</a></span>
+	</div>
+    <div class="header" style="border:1px solid #77ddff; ">
+   		   <div style="padding-top:10px;margin-left:80px;">
+				<h1 class="trip-logo">
+				 <a onclick="window.open('/index/about.htm','_blank','top=100,left=100,height=280,width=300,menubar=no,toolbar=no,scrollbars=yes')" href="#">淘宝Ateye</a>
+				</h1>
+			</div>
+		
+			<div class="top-quick" style="float:right;margin-right:30px;padding-top:18px;">
+				<em>
+			 <a onclick="window.open('/index/about.htm','_blank','top=100,left=100,height=280,width=300,menubar=no,toolbar=no,scrollbars=yes')" href="#">关于Ateye</a>
+				</em>
+				<em>|</em>
+				<em>
+			<a onclick="window.open('/index/contactUs.htm','_blank','top=100,left=100,height=280,width=300,menubar=no,toolbar=no,scrollbars=yes')" href="#">联系我们</a>
+				</em>
+				<em>|</em>
+				<em>
+			<a onclick="window.open('http://twiki.corp.taobao.com/bin/view/Taobao_DP/DPDevelop/AteyeManual','_blank','menubar=no,toolbar=no,scrollbars=yes')" href="#">Ateye使用文档</a>
+				</em>
+				<em>|</em>
+				<em>					
+					<a href="/permissionApply/apply.htm">权限申请</a>
+                </em>
+				<em>|</em>
+				<em>					
+					<a href="/index2.htm" target="_blank">尝试新版</a>
+                </em>
+			</div>
+	 </div>
+  
+   <div class="content clearfix" style="border:1px solid #77ddff; margin:10px 0px;">
+   		<div id="left" class="left" style="float:left; margin-right:10px; border-right:1px solid #77ddff;">
+                        <div class="menu1">
+                           <div><a title="Home" href="/index.htm">系统首页</a></div>
+                        </div>
+                        <div class="menu">
+                          <div>应用维护</div>
+                        </div>
+                        <div class="menuChild">
+                          	<div><a href="/beanfield/selectApp.htm" title="动态控制开关">动态开关</a></div>
+                          	<div><a href="/set/setIndex.htm" title="集合功能">集合功能</a></div>
+							<div><a href="/invoker/selectApp.htm" title="动态调用方法">方法调用</a></div>
+							<div><a href="/appcron/appcronlist.htm" title="时间程序列表">时间程序管理</a></div>
+							<div><a href="/logLevel/logLevelQuery.htm" title="日志级别调整">日志级别调整</a></div>
+							<div><a href="/ops/selectApp4Threads.htm" title="查看线程">查看线程</a></div>
+							<div><a href="/ops/selectApp4SystemInfo.htm" title="查看系统变量">查看系统变量</a></div>
+							<div><a href="/machine/selectApp4Machine.htm" title="机器列表">机器管理</a></div>
+							<div><a href="/persist/selectApp.htm" title="持久化管理">持久化管理</a></div>
+                        </div>
+						 <div class="menu">
+                            <div>日志管理</div>
+                        </div>
+                        <div  class="menuChild">
+                            <div><a href="/logpath/selectApp.htm" title="日志设置">日志设置</a></div>
+							<!--
+							<div><a href="/metaData/listMetaData.htm" title="元数据设置">元数据设置</a></div>
+							-->
+							<!--<div><a href="/log/logTrackerQuery.htm" title="日志查询">日志查询</a></div>-->
+							<div><a href="/log/opLogTrackerQuery.htm" title="操作日志查询">操作日志查询</a></div>
+							<!--
+							<div><a href="/log/agentInfoChange.htm" title="代理商信息变更查询">代理商信息变更查询</a></div>
+							<div><a href="/log/avQuery.htm?type=0" title="国内航班验票查询">国内航班验票查询</a></div>
+							<div><a href="/log/avQuery.htm?type=1" title="国际联航验票查询">国际廉航验票查询</a></div>
+							<div><a href="/log/ieQuery.htm" title="国际廉航搜索日志查询">国际廉航日志查询</a></div>
+							<div><a href="/alarm/alarmList.htm" title="告警联动">告警联动</a></div>
+							<div><a href="/hotel/checkStorage.htm" title="酒店库存日志查询">酒店库存日志查询</a></div>
+							-->
+							<div><a href="/hubmonitor/selectApp.htm" title="哈勃埋点日志查询">哈勃埋点日志查询</a></div>
+                        </div>
+						 <div class="menu">
+                            <div>支付宝接口</div>
+                        </div>
+                        <div class="menuChild">
+							<div><a href="/cae/customer_sign_query_view.htm" title="代扣签约查询">代扣签约查询</a></div>
+							<div><a href="/cae/query_account_order_view.htm" title="代扣签约查询">代扣订单查询</a></div>
+							<div><a href="/cae/customer_sign_form.htm" title="代扣签约">代扣签约</a></div>
+							<div><a href="/cae/customer_unsign_form.htm" title="代扣解约">代扣解约</a></div>
+							<div><a href="/cae/user_query_view.htm" title="用户查询">用户查询</a></div>
+							<div><a href="/cae/single_query_order_view.htm" title="订单查询">支付宝订单查询</a></div>
+							<!--<div><a href="/cae/btn_status_query_view.htm" title="批量付款状态查询">批量付款状态查询</a></div>-->
+							<!--<div><a href="/cae/bail_query_view.htm" title="保证金余额查询">保证金余额查询</a></div>-->
+                        </div>
+						 <div class="menu">
+                            <div>消息管理</div>
+                        </div>
+                        <div class="menuChild">
+                            <div><a href="/notify/wangWangSend.htm" title="发送旺旺消息">发送旺旺消息</a></div>
+							<div><a href="/notify/stationLetterSend.htm" title="发送站内信">发送站内信</a></div>
+                            <div><a href="/notify/smsSend.htm" title="发送手机短信">发送手机短信</a></div>
+                        </div>
+						 <div class="menu">
+                            <div>权限管理</div>
+                        </div>
+                        <div class="menuChild">
+                            <div><a href="/manage/user/queryUser.htm" title="用户管理">用户管理</a></div>
+                            <div><a href="/manage/role/queryRole.htm" title="角色管理">角色管理</a></div>
+                            <div><a href="/manage/resource/queryResource.htm" title="资源管理">资源管理</a></div>
+							<div><a href="/manage/app/queryApp.htm" title="应用管理">应用管理</a></div>
+							<div><a href="/manager/permissionApply/applysList.htm" title="权限审批">权限审批</a></div>
+                        </div>
+                        <div class="menu">
+                            <div>操作日志</div>
+                        </div>
+                        <div class="menuChild">
+                            <!--<div><a href="/sys/info.htm" title="内存日志">内存日志</a></div>-->
+                            <div><a href="/sys/viewOperateLog.htm" title="操作日志">操作日志</a></div>
+                        </div>
+                        <div class="menu" style="display:none;">
+                            <div>操作日志</div>
+                        </div>
+                        <div class="menuChild" style="display:none;">
+                            <div><a href="/admin/index.htm" ></a></div>
+                        </div>
+					
+                        
+                      
+                </ul>
+            </li>
+        </div>
+
+        <div class="main" style="border-left:1px solid #77ddff; margin-left:159px;overflow:scroll"">
+            <input type="hidden" id="url" value=$!{request.getAttribute("url")}>
+	#if ( $error ) 
+	<div class="class1 p5 tc mt10 wa">
+			$error
+	</div>
+	#end
+	#if ( $info ) 
+	<div class="class1 p5 tc mt10 wa">
+			$info
+	</div>
+	#end
+
+				$screen_content
+ 
+    
+        </div>
+   </div>
+#set ($env = $!{request.getAttribute("env_type")} )
+#if ( $env )
+		<div style="display:none">
+	#if ( $env.contains("Daily")  )
+<script src="http://s13.cnzz.com/z_stat.php?id=1253133513&web_id=1253133513" language="JavaScript"></script>
+	#else
+<script src="http://s13.cnzz.com/z_stat.php?id=1253133599&web_id=1253133599" language="JavaScript"></script>	
+	#end
+		</div>
+#end
+    <div class="footer" style="border:1px solid #77ddff; position:static">
+		<div style="margin-top:5px;display:none;">
+		   <a href="/index/about.htm"> 关于淘宝</a>&#160;|&#160;
+            <a href="/index/systemIntroduce.htm">系统介绍</a>&#160;|&#160;
+            <a href="/index/help.htm">使用帮助</a>&#160;|&#160;
+            <a href="/index/contactus.htm">联系我们</a>
+			
+		  </div>
+		  <div style="margin-top:10px;">
+			<h2>
+            Copyright @ 2011-2099 Taobao.com 版权所有</h2>
+			$!{request.getAttribute("env_addr")}
+        </div>
+		
+	</div>
+</div>
+</body>
+</html>

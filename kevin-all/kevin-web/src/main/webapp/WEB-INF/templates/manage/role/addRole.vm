@@ -1,0 +1,71 @@
+#set($level1="角色管理")
+#if ( $app )
+#set($level2="$app")
+#set($level2Url="/apps/detail.htm?app=$app")
+#end
+#set($layout="layout/newLayout.vm")
+<div class="ml20">
+<form action="$request.contextPath/manage/role/saveRole.htm" method="post" onsubmit="return Check();">
+	 <table class="f14 ">
+        <tr>
+			<td class="pr20">角色名称</td>
+			<td>
+				<input type="text" name="name" id="name" size="10"  onblur="CheckRoleName(this,'labelName')" value="ROLE_"></input><label id="labelName"></label>
+			</td>
+		</tr>
+        <tr>
+			<td class="pr20">角色描述</td>
+			<td>
+				<input type="text" name="description" id="desc" size="20" onblur="CheckDescLength(this,'labelDesc')"><label id="labelDesc"></label></input>
+			</td>
+		</tr>
+        <tr>
+			<td class="pr20">用户列表</td>
+			<td>
+				#foreach($user in $allUsers)
+					<input type="checkbox" name="userId" value="$!user.id"><b>$!user.nick</b></input>
+					#if ( $velocityCount % 5 == 0 )
+						<br/>
+					#end
+				#end
+			</td>
+		</tr>
+		<tr>
+			<td class="pr20">资源列表</td>
+			<td>
+				#foreach($resource in $allResources)
+					<input type="checkbox" name="resourceId" value="$!resource.id"><b>$!resource.name</b></input>
+					#if ( $velocityCount % 5 == 0 )
+						<br/>
+					#end
+				#end
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<button type="submit" value="submit">保存</button>
+			</td>
+		</tr>
+	 </table>
+</form>
+</div>
+<script type="text/javascript">
+	function Check()
+	{
+		if (!CheckRoleName(document.getElementById("name"),'labelName')) 
+		{
+			return false;
+		}
+		if (!CheckNum(document.getElementById("sort"),'labelSort'))
+		{
+			return false;	
+		}
+		if (!CheckDescLength(document.getElementById("desc"),'labelDesc')) 
+		{
+			return false;
+		}
+		
+		return true;
+	}
+</script>
+</div>

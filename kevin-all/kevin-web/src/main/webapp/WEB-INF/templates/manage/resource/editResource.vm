@@ -1,0 +1,82 @@
+#set($level1="资源管理")
+#if ( $app )
+#set($level2="$app")
+#set($level2Url="/apps/detail.htm?app=$app")
+#end
+#set($layout="layout/newLayout.vm")
+<div class="ml20">
+<form action="$request.contextPath/manage/resource/updateResource.htm" method="post" onsubmit="return Check();">
+	${csrfToken.hiddenField}	
+	<input type="hidden" name="id" value="$!resource.id" ></input>
+	<table class="f14 ">
+        <tr>
+			<td class="pr20">资源名称</td>
+			<td>
+				<input type="text" name="name" id="name" value="$!resource.name" size="10" onblur="CheckNotNull(this,'labelName')"></input><label id="labelName"></label>
+			</td>
+		</tr>
+		<tr>
+			<td>序号</td>
+			<td>
+				<input type="text" name="sort" id="sort" size="2" value="$!resource.sort" onblur="CheckNum(this,'labelSort')"></input><label id="labelSort"></label>
+			</td>
+		</tr>
+		<tr>
+			<td class="pr20">资源路径</td>
+			<td>
+				<input type="text" name="path" id="path" size="50" value="$!resource.path" onblur="CheckPathLength(this,'labelPath')"></input><label id="labelPath"></label>
+			</td>
+		</tr>
+		<tr>
+			<td class="pr20">角色列表</td>
+			<td>
+				#set($flag=0)
+				#foreach($role in $allRoles)
+					#if($resource.roleList)
+						#foreach($resourceRole in $resource.roleList)
+							#if($!role.id==$resourceRole.id)
+			                    <input type="checkbox" name="roleId" value="$!role.id" checked="true"><b>$!role.description</b></input>
+								#set($flag=1)
+							#end
+						#end
+						#if($flag==1)
+							#set($flag=0)
+						#else
+			                <input type="checkbox" name="roleId" value="$!role.id"><b>$!role.description</b></input>
+						#end
+					#else
+						<input type="checkbox" name="roleId" value="$!role.id"><b>$!role.description</b></input>
+					#end
+					#if ( $velocityCount % 5 == 0 )
+						<br/>
+					#end
+				#end
+			</td>
+		</tr>
+		<tr>
+			<td class="pr20">
+				<button type="submit" value="submit">更新</button>
+			</td>
+		</tr>
+	 </table>
+</form>
+<script type="text/javascript">
+	function Check()
+	{
+		if (!CheckNotNull(document.getElementById("name"),'labelName')) 
+		{
+			return false;
+		}
+		if(!CheckNum(document.getElementById("sort"),'labelSort'))
+		{
+			return false;
+		}
+		if (!CheckPathLength(document.getElementById("path"),'labelPath'))
+		{
+			return false;	
+		}
+		return true;
+	}
+</script>
+</div>
+</div>

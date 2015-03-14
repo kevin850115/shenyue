@@ -1,0 +1,13 @@
+#set($level1="角色管理")
+#if ( $app )
+#set($level2="$app")
+#set($level2Url="/apps/detail.htm?app=$app")
+#end
+#set($layout="layout/newLayout.vm")
+<div class="ml20">
+	#if($!flag)
+删除角色成功！
+#else
+删除角色失败！
+	#end
+	</div>

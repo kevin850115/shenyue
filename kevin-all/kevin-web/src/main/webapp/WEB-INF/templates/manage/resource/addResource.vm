@@ -1,0 +1,65 @@
+#set($level1="资源管理")
+#if ( $app )
+#set($level2="$app")
+#set($level2Url="/apps/detail.htm?app=$app")
+#end
+#set($layout="layout/newLayout.vm")
+<div class="mt20 ml20">
+<form action="$request.contextPath/manage/resource/saveResource.htm" method="post" onsubmit="return Check();">
+	 <table class="f14 ">
+        <tr>
+			<td class="pr20">资源名称</td>
+			<td>
+				<input type="text" name="name" id="name" size="10" onblur="CheckNotNull(this,'labelName')"></input><label id="labelName"></label>
+			</td>
+		</tr>
+		<tr>
+			<td>序号</td>
+			<td>
+				<input type="text" name="sort"  id="sort" size="2" onblur="CheckNum(this,'labelSort')"></input><label id="labelSort"></label>
+			</td>
+		</tr>
+		<tr>
+			<td class="pr20">资源路径</td>
+			<td>
+				<input type="text" name="path" id="path" size="10" onblur="CheckPathLength(this,'labelPath')"></input><label id="labelPath"></label>
+			</td>
+		</tr>
+		<tr>
+			<td class="pr20">角色列表</td>
+			<td>
+				#foreach($role in $allRoles)
+			        <input type="checkbox" name="roleId" value="$!role.id"><b>$!role.description</b></input>
+					#if ( $velocityCount % 5 == 0 )
+						<br/>
+					#end
+				#end
+			</td>
+		</tr>
+		<tr>
+			<td class="pr20">
+				<button type="submit" value="submit">保存</button>
+			</td>
+		</tr>
+	 </table>
+
+</form>
+<script type="text/javascript">
+	function Check()
+	{
+		if (!CheckNotNull(document.getElementById("name"),'labelName')) 
+		{
+			return false;
+		}
+		if (!CheckNum(document.getElementById("sort"),'labelSort'))
+		{
+			return false;	
+		}
+		if (!CheckPathLength(document.getElementById("path"),'labelPath'))
+		{
+			return false;	
+		}
+		return true;
+	}
+</script>
+</div>

@@ -1,0 +1,36 @@
+#set($level1="内部工具")
+#set($level2="用户应用权限列表")
+#set($level2Url="/manager/app/listAppUser.htm")
+#set($layout="layout/newLayout.vm")
+
+<div class="full ml20">
+    <table class="w800 table table-hover table-condensed mb5 f14">
+		<tr>
+			<td>业务</td>
+			<td>应用名/</td>
+			<td>描述</td>
+			<td>用户</td>
+		</tr>
+		#foreach( $biz in $bizMap.keySet() )
+			#foreach($apps in $bizMap.get($biz))
+				<tr>
+				#if ( $biz != "" )
+					#set($app=$apps.get(0))
+					#set($desc=$apps.get(1))
+					#set($num= $serverMap.get($app))
+					<td>$biz</td>
+					<td class="f18 red fb">$app</td>
+					<td>$desc</td>
+					<td>
+						#set($users = $appUsers.get($app) )
+						#foreach ( $user in $users )
+							<a target="_blank" href="https://work.alibaba-inc.com/work/search?primarySortField=createtime&primarySortDecending=true&keywords=$userNames.get($user.nick)&type=person">$user.nick</a> <a onclick="javascipt:if(confirm('您确定要删除该用户权限吗')){return true;}else{return false;}" href="/manage/app/deleteAppUser.htm?app=$app&user=$user.id">x</a> <br>
+						#end
+					</td>
+				#end
+				</tr>
+			#end
+		#end
+	</table>
+		
+</div><!-- /.container -->

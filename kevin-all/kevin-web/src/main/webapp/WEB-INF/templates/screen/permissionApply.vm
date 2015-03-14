@@ -1,0 +1,109 @@
+#set($level1="用户权限申请")
+#if ( $app )
+#set($level2="$app")
+#set($level2Url="/apps/detail.htm?app=$app")
+#end
+#set($layout="layout/newLayout.vm")
+<div class="ml20">	
+#if ( $error)
+	<div class="f18 alert alert-danger">$error</div>
+#end
+#if ( $info)
+	<div class="f18 alert alert-success">$info</div>
+#end
+</div>
+<div class="">	
+<div class="mt10">
+<form class="form-horizontal" action="$request.contextPath/permissionApply/save.htm" method="post" onsubmit="return Check();">
+	<div class="control-group">
+		<label class="control-label" for="nick" >淘宝昵称</label>
+		<div class="controls">
+			$!nick
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="title" >职位</label>
+		<div class="controls">
+			<select name="title" >
+                <option value="开发工程师">开发工程师</option>
+				<option value="测试工程师">测试工程师</option>
+				<option value="前端工程师">前端工程师</option>
+				<option value="交互设计">交互设计</option>
+				<option value="产品经理">产品经理</option>
+				<option value="运营">运营</option>
+				<option value="运维工程师">运维工程师</option>	
+				<option value="其他">其他</option>	
+            </select>
+		</div>
+	</div>	
+	<div class="control-group">
+		<label class="control-label" for="title" >角色</label>
+		<div class="controls">	
+			#set($flag=0)
+				#foreach($role in $allRoles)
+					#if($role.name != 'ROLE_ADMIN' && $role.name != 'ROLE_GUEST' )
+					#if($user.roleList)
+						#foreach($userRole in $user.roleList)
+							#if($role.id==$userRole.id)
+								<input type="checkbox" name="roleId" value="$!role.id" checked='true'><b>$!role.description</b></input>
+								#set($flag=1)
+							#end	
+						#end	
+						#if($flag==1)
+							#set($flag=0)
+						#else
+							<input type="checkbox" name="roleId" value="$!role.id"><b>$!role.description</b></input>
+						#end
+					#else
+						<input type="checkbox" name="roleId" value="$!role.id"><b>$!role.description</b></input>
+					#end
+					#if ( $velocityCount % 5 == 0 )
+						<br/>
+					#end
+					#end
+				#end
+		</div>
+	</div>	
+	<div class="control-group">
+		<label class="control-label" for="apps" >添加应用</label>
+		<div class="controls">	
+	        #set($flag1=0)
+            #foreach($app in $apps)
+                #if($userapps)
+                    #foreach($userapp in $userapps)
+                        #if($app.appName==$userapp.appName)
+                            <input type="checkbox" name="roleapp" value="$!app.appName" checked disabled><b>$!app.appName</b></input>
+                            #set($flag1=1)
+                        #end    
+                    #end    
+                    #if($flag1==1)
+                        #set($flag1=0)
+                    #else
+                        <input type="checkbox" name="roleapp" value="$!app.appName"><b>$!app.appName</b></input>
+                    #end
+                #else
+                    <input type="checkbox" name="roleapp" value="$!app.appName"><b>$!app.appName</b></input>
+                #end
+                #if ( $velocityCount % 5 == 0 )
+                    <br/>
+                #end
+            #end
+		</div>
+	</div>			
+	<div class="control-group">
+		<label class="control-label" for="apps">申请理由</label>
+		<div class="controls">	
+			<textarea required name="reason" id="reason" style="width:400px;height:80px" onblur="CheckNotTooLong(this,'labelReason')"></textarea><label id="labelReason"></label>
+		</div>
+	</div>
+	<div class="control-group">
+		<div class="controls">	
+		    <button class="btn btn-success white f16 fb" type="submit" value="submit">提交申请</button>
+		</div>
+	</div>
+</form>
+
+</div>
+
+</div>
+</div>

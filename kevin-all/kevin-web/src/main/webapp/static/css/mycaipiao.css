@@ -1,0 +1,229 @@
+#Head #HeadTop {
+	margin:10px auto 0px;
+}
+/* -----for new head ----- add by dongbai begin  */
+#Head #HeadTop{
+	margin:5px auto 0px;
+	height:60px;
+	
+}
+#Head #HeadTop logo{
+ float:left;
+ }
+ #HeadTop div#NavBar{
+	float:right; 
+	text-align:right;
+	height:22px;
+	width:500px;
+	margin-top:5px;
+	}
+#HeadTop div#NavBar ul{ margin:0px; padding:0px; list-style-type:none;background:none !important; text-align:center;}
+#HeadTop div#NavBar ul li{ float:right; margin-left:5px;height:22px; line-height:22px;background:url(http://pics.taobao.com/bao/album/chl/lottery/channelmenu_07.gif) 0 0 no-repeat;width:auto !important;width:60px; }
+#HeadTop div#NavBar ul li span{ display:block;height:22px;background:url(http://pics.taobao.com/bao/album/chl/lottery/channelmenu_08.gif) right 0 no-repeat;}
+#HeadTop div#NavBar ul li a{ display:block; padding:0 5px;width:60px;height:22px;}
+#HeadTop div#NavBar ul li#MyLottery a{background:url(http://pics.taobao.com/bao/album/chl/lottery/channelmenu_09.gif) 5px 40% no-repeat; padding-left:15px; }
+ 
+ /* end */
+ 
+#Head #QuickLinks {
+	margin-bottom:0pt;
+	position:relative;
+	top:16px;
+}
+#Head div#Crumb {
+	text-align: left;
+	font-size:12px;
+	height:20px;
+	line-height:20px;
+	margin:0pt auto;
+	width:750px;
+}
+
+#Head div#Crumb ul{
+	padding-left:5px;
+	width: 500px;
+	position: relative;	
+}
+#Head div#Crumb li{
+	float:left;
+	line-height:20px;
+}
+#Head div#Crumb li a{
+	padding-right:15px;
+	display:block;
+	background:url(http://pics.taobao.com/bao/album/sys/misc/pathlinks_level1_seperate_a.gif) right 3px no-repeat;
+}
+/* Main */
+#Content #Main #Container h2,#Content #SideBar h3{
+	height:27px;
+	background:url(http://taobao.wozhongle.com/lottery/home/images/main_title_bg.gif) no-repeat;
+	border:none;
+	border-bottom:3px #fff solid;
+	line-height:27px;
+	font-size:13px;
+	color:#FFF;
+	margin:0;
+}
+#Content #Main #Container .Win{
+	height:45px;
+	border:1px #FFCC66 solid;
+	background:#FFFFCC url(http://taobao.wozhongle.com/lottery/home/images/zhongle.gif) top left no-repeat;
+	padding:10px;
+	padding-left:65px;
+	margin:0px;
+	margin-top:2px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#FF6600;
+	line-height:150%;
+}
+#Content #Main #Container .Win span{
+	font-weight:bold;
+	font-size:14px;
+}
+#Content #Main #Container .SearchBox{
+	height:25px;
+	border:1px #ccc solid;
+	padding:10px;
+	background:#f5f5f5;
+	margin-top:5px;
+}
+#Content #Main #Container .WinTable{
+	width:610px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+#Content #Main #Container .WinTable th{
+	height:24px;
+	line-height:24px;
+	text-align:center;
+	background:#EEE;
+	border-top:1px solid #E6E6E6;
+	border-bottom:2px #fff solid;
+}
+#Content #Main #Container .WinTable td{
+	height:60px;
+	padding:5px;
+	text-align:center;
+	background:#f5f5f5;
+	border-bottom:2px #FFF solid;
+}
+#Content #Main #Container .WinTable tr.W td{background:#FFE0D2;}
+#Content #Main #Container .WinTable tr.N td{background:#E6E9FF;}
+#Content #Main #Container .WinTable tr.E td{background:#F1F1F1;}
+/* SideBar */
+
+#Content #SideBar h3{
+	background:url(http://taobao.wozhongle.com/lottery/home/images/side_title_bg.gif) no-repeat;
+	padding-left:10px;
+}
+#Content #SideBar .Menu{
+	background:#EEE;
+	padding:8px 3px 8px 3px;
+}
+#Content #SideBar .Menu ul{
+	margin:0;
+	padding:0;
+	list-style-type:none;
+	margin-bottom:10px;
+}
+#Content #SideBar .Menu ul li{
+	line-height:180%;
+	height:22px;
+}
+#Content #SideBar .Menu ul li.Nonce{
+	background:#FFFFCC;
+	border:1px solid #DDD;
+}
+#Content #SideBar .Menu ul li.Nonce a{
+	color:#FF5500;
+	border:none;
+}
+#Content #SideBar .Menu ul li a{
+	display:block;
+	height:20px;
+	background:transparent url(http://pics.taobao.com/bao/album/sys/misc/top_icon.gif) 3px 7px no-repeat;
+	padding-left:10px;
+}
+#Content #SideBar .Menu ul li.Nonce a:link,#Content #SideBar .Menu ul li.Nonce a:visited{
+border:none;}
+#Content #SideBar .Menu ul li.Nonce a:hover,#Content #SideBar .Menu ul li.Nonce a:active{
+background:transparent url(http://pics.taobao.com/bao/album/sys/misc/top_icon.gif) 3px 7px no-repeat;
+}
+#Content #SideBar .Menu ul li a:link,#Content #SideBar .Menu ul li a:visited{
+	text-decoration:none;
+	border:1px solid #EEE;
+}
+#Content #SideBar .Menu ul li a:hover,#Content #SideBar .Menu ul li a:active{
+	background:#FFF url(http://pics.taobao.com/bao/album/sys/misc/top_icon.gif) 3px 7px no-repeat;
+	border:1px solid #DDD;
+}
+
+/* particular */
+
+.Particular h2{
+	background:url(http://taobao.wozhongle.com/lottery/home/images/particular_title_bg.gif) no-repeat;
+	border:none;
+	border-bottom:3px #fff solid;
+	color:#FFFFFF;
+	margin:0px;
+	margin-top:10px;
+	
+}
+.Particular .WinInfo{
+
+	padding:10px;
+	background-repeat:no-repeat;
+	background-position:10px 10px;
+}
+.Particular .W2{background-color:#FFE0D2;}
+.Particular .E2{background-color:#F1F1F1;}
+.Particular .N2{background-color:#E6E9FF;}
+.Particular .WinInfo ul{
+	padding:0;
+	margin:0;
+	list-style-type:none;
+	padding-left:50px;
+}
+.Particular .WinInfo ul li{
+	float:left;
+	width:220px;
+	line-height:20px;
+}
+.Particular .WinTable2{
+	font-family:Arial, Helvetica, sans-serif;
+	width:760px;
+	margin-top:3px;
+}
+
+
+.Particular .WinTable2 th{
+	height:24px;
+	line-height:24px;
+	text-align:center;
+	background:#EEE;
+	border-top:1px solid #E6E6E6;
+	border-bottom:2px #fff solid;
+}
+.Particular .WinTable2 td{
+	height:20px;
+	padding:5px;
+	text-align:center;
+	background:#f5f5f5;
+	border-bottom:2px #FFF solid;
+}
+
+
+.Blue{ color:#0066FF;}
+.Red{ color:#FF3300;}
+
+#Honoree{
+	border:1px #FFCC66 solid;
+	background:#FFFFCC;
+	height:150px;
+	font-size:14px;
+	background:#FFFFCC url(http://taobao.wozhongle.com/lottery/home/images/zhongle.gif) 15px 20px no-repeat;
+	padding:25px 15px 15px 90px;
+}
+#Honoree p{
+	font-size:14px;
+} 

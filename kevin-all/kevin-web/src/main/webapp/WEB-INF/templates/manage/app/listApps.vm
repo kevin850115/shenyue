@@ -1,0 +1,27 @@
+#set($level1="内部工具")
+#set($level2="应用日志列表")
+#set($level2Url="/manager/app/listAppLogFiles.htm")
+
+#set($layout="layout/newLayout.vm")
+<div class="full">
+	<div class="alert alert-danger w300 f20 unl">
+		请使用Ctrl+F查询您的应用！
+	</div>
+		#foreach( $biz in $bizMap.keySet() )
+        <div class="">
+			<h3>$biz</h3>
+			<div>
+				#foreach($apps in $bizMap.get($biz))
+					#if ( $biz != "" )
+						#set($app=$apps.get(0))
+						#set($desc=$apps.get(1))
+						<div class="fl"><a class="darkgray btn f16 m5" #if ( !$existApps.contains($app) ) style="text-decoration:line-through" #end href="/manage/app/listAppLogFiles.htm?app=$app">$app<br>$desc</a></div>
+						
+					#end
+				#end
+			</div>
+			<div class="cl"></div>
+        </div>
+		#end
+		
+</div><!-- /.container -->

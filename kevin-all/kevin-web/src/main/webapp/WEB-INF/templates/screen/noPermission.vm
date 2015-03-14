@@ -1,0 +1,15 @@
+#set($level1="无权限")
+#if ( $app )
+#set($level2="$app")
+#set($level2Url="/apps/detail.htm?app=$app")
+#end
+#set($layout="layout/newLayout.vm")
+<div class="ml20 mt20">	
+#set($title_content='没有权限')
+
+<div id="errormsg" style="color:red;" class="f16">
+	很抱歉，您没有权限访问该资源，可以联系系统管理员 @秦冲 @史彰。或者通过以下url进行权限申请。
+	<a class="btn btn-info f18 white" href="/permissionApply/apply.htm">权限自助申请</a>
+</div>
+
+</div>

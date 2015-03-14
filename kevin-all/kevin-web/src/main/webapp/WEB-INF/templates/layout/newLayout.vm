@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ateye-$!{request.getAttribute("env_type")} #if ($level2 ) $level2 #end</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<!-- Bootstrap -->
+<link rel="stylesheet" href="$request.contextPath/static/css/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="$request.contextPath/static/css/bootstrap/base.css">
+<link rel="stylesheet" href="$request.contextPath/static/css/bootstrap/bootstrap-responsive.min.css">
+<link rel="stylesheet" href="$request.contextPath/static/css/index.css">
+<script src="$request.contextPath/static/js/jquery.min.js"></script>
+<script src="$request.contextPath/static/js/bootstrap/bootstrap.js"></script>
+
+<style type="text/css">
+body {
+      padding-top: 60px;
+}
+.full{
+     font-size:12px;
+    padding:0 15px;
+}
+
+</style>
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
+<script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+#set ($env = $!{request.getAttribute("env_type")} )
+#set ($loginNick = $!{request.getAttribute("ateye_nick")} )
+#set ( $nk = $!{request.getAttribute("role_nick")} )
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/index2.htm"><font style="color:white" class="f24 ml10">航旅Ateye[$env]</font></a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="dropdown">
+                <a href="#" class="f16 dropdown-toggle" data-toggle="dropdown"><font style="color:white">应用维护</font><b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/beanfield/selectApp2.htm">动态开关</a></li>
+                  <li><a href="/invoker/selectApp2.htm">方法调用</a></li>
+                  <li><a href="/appcron/selectApp2.htm">时间程序管理</a></li>
+                  <li><a href="/logLevel/selectApp2.htm">日志级别调整</a></li>
+                  <li class="divider"></li>
+                  <li><a href="/machine/selectApp2.htm">机器管理</a></li>
+				  <li><a href="/manage/app/addApp3.htm">添加应用</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="f16 dropdown-toggle" data-toggle="dropdown"><font style="color:white">日志</font><b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/log/opLogTrackerQuery.htm">操作日志查询</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="f16 dropdown-toggle" data-toggle="dropdown"><font style="color:white">监控</font><b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/monitor/exceptionList.htm">[分类]实时异常</a></li>
+                  <li><a href="/monitor/overview.htm">[逐条]实时异常</a></li>
+                  <li class="divider"></li>
+                  <li><a href="/hubmonitor/sqlmap.htm">Sqlmap监控</a></li>
+                  <li><a href="/hubmonitor/monitorLogList.htm">KV监控</a></li>
+                  <li><a href="/hubmonitor/hsfMonitorLogList.htm">HSF监控</a></li>
+                  <li class="divider"></li>
+                  <li><a href="/ops/selectApp4Threads2.htm">查看线程</a></li>
+                  <li><a href="/ops/selectApp4SystemInfo2.htm">系统变量</a></li>
+                  <li class="divider"></li>
+                  <li><a href="/monitor/memwatchList.htm">容器监控</a></li>
+                </ul>
+              </li>
+		      <li class="dropdown">
+                <a href="#" class="f16 dropdown-toggle" data-toggle="dropdown"><font style="color:white">工具</font><b class="caret"></b></a>
+                <ul class="dropdown-menu">
+				  <li><a href="/cae/customer_sign_query_view.htm" title="代扣签约查询">代扣签约查询</a></li>
+				  <li><a href="/cae/query_account_order_view.htm" title="代扣签约查询">代扣订单查询</a></li>
+				  <li><a href="/cae/customer_sign_form.htm" title="代扣签约">代扣签约</a></li>
+				  <li><a href="/cae/customer_unsign_form.htm" title="代扣解约">代扣解约</a></li>
+				  <li><a href="/cae/user_query_view.htm" title="用户查询">用户查询</a></li>
+				  <li><a href="/cae/single_query_order_view.htm" title="订单查询">支付宝订单查询</a></li>
+                  <li class="divider"></li>
+		          <li><a href="/notify/wangWangSend.htm" title="发送旺旺消息">发送旺旺消息</a></li>
+                  <li class="divider"></li>
+                </ul>
+              </li>
+			   <li class="dropdown">
+                <a href="#" class="f16 dropdown-toggle" data-toggle="dropdown"><font style="color:white">文档</font><b class="caret"></b></a>
+                <ul class="dropdown-menu">
+				   <li><a href="http://twiki.corp.taobao.com/bin/view/Taobao_DP/DPDevelop/AteyeManual" target="_blank">ateye使用文档</a></li>
+				   <li><a href="http://twiki.corp.taobao.com/bin/view/Taobao_DP/Qinc/App_new_feature" target="_blank">ateye新功能介绍</a></li>
+				   <li><a href="http://twiki.corp.taobao.com/bin/view/Taobao_DP/Qinc/App_except" target="_blank">接入异常/错误监控</a></li>
+				   <li><a href="http://twiki.corp.taobao.com/bin/view/Taobao_DP/Qinc/App_persist" target="_blank">持久化开关</a></li>
+				   <li><a href="http://twiki.corp.taobao.com/bin/view/Taobao_DP/Qinc/App_sqlmap" target="_blank">Sqlmap监控</a></li>
+				   <li><a href="http://twiki.corp.taobao.com/bin/view/Taobao_DP/Qinc/App_kv" target="_blank">KV监控</a></li>
+                  <li class="divider"></li>
+				   <li><a href="http://twiki.corp.taobao.com/bin/view/Taobao_DP/Qinc/App_faq" target="_blank">FAQ</a></li>
+                </ul>
+              </li>
+		      <li class="dropdown">
+                <a href="#" class="f16 dropdown-toggle" data-toggle="dropdown"><font style="color:white">权限</font><b class="caret"></b></a>
+                <ul class="dropdown-menu">
+				   <li><a href="/manage/user/queryUser.htm" title="用户管理">用户管理</a></li>
+                   <li><a href="/manage/role/queryRole.htm" title="角色管理">角色管理</a></li>
+                   <li><a href="/manage/resource/queryResource.htm" title="资源管理">资源管理</a></li>
+				   <li><a href="/manage/app/queryApp.htm" title="应用管理">应用管理</a></li>
+				   <li><a href="/manager/permissionApply/applysList.htm" title="权限审批">权限审批</a></li>
+                </ul>
+              </li>
+  			  #if ( $nk == "秦冲" || $nk == "史彰" )
+              <li class="dropdown">
+                <a href="#" class="f16 dropdown-toggle" data-toggle="dropdown"><font style="color:white">内部</font><b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/sys/viewOperateLog.htm" title="操作日志">操作日志</a></li>
+                  <li><a href="/manage/app/queryApp2.htm">应用管理</a></li>
+                  <li><a href="/manage/app/addApp2.htm">添加应用</a></li>
+                  <li><a href="/apps/list.htm">机器数统计</a></li>
+                  <li><a href="/manage/app/listAppUser.htm">用户应用权限列表</a></li>
+                  <li><a href="/manage/url/listAll.htm">AteyeUrl访问列表</a></li>
+                  <li class="divider"></li>
+                  <li><a href="/manage/log/listTrackerLogs.htm">Tracker配置</a></li>
+                  <li><a href="/hubmonitor/trackerSpeed.htm">Tracker收集量监控</a></li>
+                  <li><a href="/tracker/queueView.htm">Tracker工作队列监控</a></li>
+                  <li class="divider"></li>
+                  <li><a href="/hbase/listSchema.htm">Hbase查询</a></li>
+                  <li><a target="_blank" href="http://hbase.alibaba-inc.com/hbase/writetime_msg.php?AS=225&RS=all&DA=3d">Hbase集群监控[生产]</a></li>
+                  <li class="divider"></li>
+                  <li><a href="/tracker/ateyeLog.htm">AteyeServlet启动日志</a></li>
+                  <li class="divider"></li>
+                  <li><a href="/manage/role/changeRole.htm">换身份</a></li>
+                  <li class="divider"></li>
+                  <li><a target="_blank" href="http://ops.jm.taobao.net/diamond-ops/configs/list.html?pageNo=1&pageSize=15&serverId=Diamond&dataId=&group=ateye_switch">日常持久化开关</a></li>
+                  <li><a target="_blank" href="http://ops.jm.taobao.org:9999/diamond-ops/configs/list.html?pageNo=1&pageSize=15&serverId=Diamond&dataId=&group=ateye_switch">线上持久化开关</a></li>
+                  <li class="divider"></li>
+                  <li><a href="/rep/listAll.htm">日报列表</a></li>
+                  <li class="divider"></li>
+                  <li><a href="/hubmonitor/alarmConfigList.htm">KV监控配置</a></li>
+                  <li><a href="/hubmonitor/alarmAllHistoryLog.htm">KV监控报警历史</a></li>
+                  <li class="divider"></li>
+                  <li><a href="/hsfgraph/appList.htm">HSF关系图</a></li>
+                </ul>
+              </li>
+			  #end
+            </ul>
+			 <form class="form-search navbar-form pull-left ml100" action="/apps/detail.htm" autocomplete="off" method="get">
+		          <div class="input-append">
+		            <input type="text" class="search-query span2" name="app" value=""
+		              placeholder="输入应用名直接进入应用"
+		              data-provide="typeahead" data-href="api/GetSearchAutoComplete">
+		            <button type="submit" class="btn">直达</button>
+                  </div>
+	        </form>
+	        <div style="margin:5px 5px 0;" class="f20 white  input-append date pull-right" id="date-time-nav">
+				#if ( $env.contains("Daily")  )
+				<button class="btn darkgray f16">日常无需申请权限</button>
+				#else
+				<a class="btn darkgray f16" target="_blank" href="/permissionApply/apply.htm">申请权限</a>
+				#end
+		  	</div>
+          </div><!--/.nav-collapse -->
+      </div>
+    </div>
+	<div>
+		#if ( $loginNick != $nk )
+			<div class="ml20 alert alert-success f18 fb">
+				临时权限身份：$nk <a href="/manage/role/resetRole.htm" class="btn btn-warning white f18">取消</a>
+			</div>
+		#end
+		#if ( $level0 && $level0=="none" )
+		#else
+	    <ul class="breadcrumb">
+		    <li><a href="/index2.htm">首页</a></li>
+			#if ( $level1 )
+			<span> -> </span>
+		    <li>$level1</li>
+			#end
+			#if ( $level2 )
+			<span> -> </span>
+		    <li class="active"><a href="$level2Url">$level2</a></li>
+			#end
+			#if ( $level3 )
+			<span> -> </span>
+		    <li class="active">$level3</li>
+			#end
+	    </ul>
+		#end
+	</div>
+$screen_content
+
+#if ( $env )
+		<div style="display:none">
+	#if ( $env.contains("Daily")  )
+<script src="http://s13.cnzz.com/z_stat.php?id=1253133513&web_id=1253133513" language="JavaScript"></script>
+	#else
+<script src="http://s13.cnzz.com/z_stat.php?id=1253133599&web_id=1253133599" language="JavaScript"></script>	
+	#end
+		</div>
+#end
+</body>
+
+
+</html>

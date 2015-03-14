@@ -1,0 +1,57 @@
+#set($level1="操作日志")
+#if ( $app )
+#set($level2="$app")
+#set($level2Url="/apps/detail.htm?app=$app")
+#end
+#set($layout="layout/newLayout.vm")
+<div class="ml20">	
+		#if($logs)
+        <div id="list" class="">
+            <table class="w tc mt20 tb f14 ">
+				<col width=20/>
+				<col width=30/>
+				<col width=30/>
+				<col width=80/>
+				<col width=100/>
+				<col width=500/>
+            <tr>
+                <th width=""></th>
+                <th width="">时间</th>
+                <th width="">操作者</th>
+                <th width="">动作</th>
+                <th width="">消息</th>
+                <th width="">参数</th>
+            </tr>
+			#foreach($log in $logs)
+				<tr onMouseOut="this.style.backgroundColor='#FFFFFF' " 
+			                onMouseOver="this.style.backgroundColor='#FFF0C5'" 
+			                bgcolor="#FFFFFF">
+					<td>
+						#if ( $log.level == "ERROR" )
+							<img src="/static/images/error.gif" title="${log.level}"></img>
+						#elseif ( $log.level=="INFO" )
+							<img src="/static/images/info.gif" title="${log.level}"></img>
+						#end
+					</td>
+					<td>$log.getCreateStr()</td>
+					<td>$log.operater</td>
+					<td>$log.cl<br><font class="red">$log.method</font></td>
+					<td>$log.msg</td>
+					<td title="$log.args" class="break-line">$log.args</td>
+				</tr>
+			#end
+			</table>
+		</div>
+		<div>
+			<div class="tc f14 mt10">
+				#if ( $prev_url )
+				<a class="p5" href="$prev_url">上一页</a>
+				#end
+				第 $page/$total 页
+				#if ( $next_url )
+				<a class="p5" href="$next_url">下一页</a> </div>
+				#end
+		</div>
+		#end
+</div>
+            

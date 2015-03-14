@@ -1,0 +1,34 @@
+#set($level1="内部工具")
+#set($level2="URL列表")
+#set($level2Url="/manager/url/list.htm")
+
+#set($layout="layout/newLayout.vm")
+<link rel="stylesheet" href="$request.contextPath/static/css/datepicker.css">
+<script src="$request.contextPath/static/js/bootstrap-datepicker.js"></script>
+<div class="full">
+		<form class="form-search">
+	            <input type="text" class="span2" value="$startDate" name="startDate" data-date-format="yyyy-mm-dd" id="dp2" >
+				<input type="submit" class="btn btn-success" value="查询"></input>
+			</form>
+	<span class="f18 fb">共有<span class="red f18 fb">$handlers.size()</span>个URL，累计访问<span class="green f18 fb">$total</span>次</span>
+		 <table class="mt20 w800 table table-hover f14 table-condensed mb5">
+            <tbody>
+                <tr class="f18 fb">
+                    <td>URL</td>
+                    <td>访问次数</td>
+                    <td>占比</td>
+                </tr>
+				#foreach($st in $stats)
+					<tr class="">
+						<td #if (!$handlers.keySet().contains($st.url)) class="green" #elseif ($st.times > 0 ) class="red" #end>${st.url}</td>
+						<td #if ($st.times > 0 ) class="red" #end><a href="/hubmonitor/history2.htm?groupby=day&appName=ateye&startDate=$startDate&endDate=$endDate&keys=${st.keys}&valueType=v1" target="_blank">${st.times}</a></td>
+						<td #if ($st.times > 0 ) class="red" #end>${st.per}</td>
+					</tr>
+				#end
+            </tbody>
+        </table>
+		
+</div><!-- /.container -->
+<script>
+$('#dp2').datepicker();
+</script>

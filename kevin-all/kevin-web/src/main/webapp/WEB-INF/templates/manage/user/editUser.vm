@@ -1,0 +1,115 @@
+#set($level1="编辑用户")
+#if ( $app )
+#set($level2="$app")
+#set($level2Url="/apps/detail.htm?app=$app")
+#end
+#set($layout="layout/newLayout.vm")
+<div class="ml20">	
+<div class="mt10">
+<form action="$request.contextPath/manage/user/updateUser.htm" method="post" onsubmit="return Check();">
+	${csrfToken.hiddenField}	
+	<input type="hidden" name="id" value="$!user.id"></input>
+	<input type="hidden" name="nick" value="$!user.nick"></input>
+	 <table class="f14 ">
+        <tr>
+			<td class="pr20">淘宝昵称</td>
+			<td>$!user.nick</td>
+		</tr>
+		<tr>
+			<td>职位</td>
+			<td>
+	<input type="text" name="title" id="title" size="10" value="$!user.title" onblur="CheckNotNull(this,'labelTitle')"></input><label id="labelTitle"></label>
+			</td>
+		</tr>
+		<tr>
+			<td>是否启用</td>
+			<td>
+				是<input type="radio" name="enable" value="1" #if ($!user.isEnable()==true) checked="true" #end>
+			    否<input type="radio" name="enable" value="0" #if ($!user.isEnable()==false) checked="true" #end>
+			</td>
+		</tr>
+		<tr>
+			<td>角色列表</td>
+			<td>
+				<div id="list">
+				#set($flag=0)
+				#foreach($role in $allRoles)
+					#if($user.roleList)
+						#foreach($userRole in $user.roleList)
+							#if($role.id==$userRole.id)
+								<input type="checkbox" name="roleId" value="$!role.id" checked='true'><b>$!role.description</b></input>
+								#set($flag=1)
+							#end	
+						#end	
+						#if($flag==1)
+							#set($flag=0)
+						#else
+							<input type="checkbox" name="roleId" value="$!role.id"><b>$!role.description</b></input>
+						#end
+					#else
+						<input type="checkbox" name="roleId" value="$!role.id"><b>$!role.description</b></input>
+					#end
+					#if ( $velocityCount % 5 == 0 )
+						<br/>
+					#end
+				#end
+			    </div>
+			</td>
+		</tr>
+		<tr style="padding-top:3px;"></tr>
+		<tr>
+			<td valign="top" >添加应用</td>
+			<td>
+				<div id="list">
+					#set($flag1=0)
+            	#foreach($app in $apps)
+					#if($userapps)
+						#foreach($userapp in $userapps)
+							#if($app.appName==$userapp.appName)
+								<input type="checkbox" name="roleapp" value="$!app.appName" checked><b>$!app.appName</b></input>
+								#set($flag1=1)
+							#end	
+						#end	
+						#if($flag1==1)
+							#set($flag1=0)
+						#else
+							<input type="checkbox" name="roleapp" value="$!app.appName"><b>$!app.appName</b></input>
+						#end
+					#else
+						<input type="checkbox" name="roleapp" value="$!app.appName"><b>$!app.appName</b></input>
+					#end
+					#if ( $velocityCount % 5 == 0 )
+						<br/>
+					#end
+            	#end
+                </div>	
+			</td>
+		</tr>
+		<tr>
+			<td>
+			    <button type="submit" value="submit">更新</button>
+			</td>
+		</tr>
+	</table>
+</form>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+	function Check()
+	{
+		if (!CheckNotNull(document.getElementById("name"),'labelName')) 
+		{
+			return false;
+		}
+		if (!CheckNotNull(document.getElementById("title"),'labelTitle')) 
+		{
+			return false;
+		}
+		if (!CheckNum(document.getElementById("sort"),'labelSort'))
+		{
+			return false;	
+		}
+		return true;
+	}
+</script>
