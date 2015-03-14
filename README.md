@@ -1,4 +1,3 @@
-![trip-arch](https://github.com/kevin850115/shenyue/blob/master/screenshots/trip-arch-whole-2015.png)
 ### JAVA
 * [并发编程](https://github.com/kevin850115/kevin/wiki/concurrent)
 * [NIO相关资料](https://github.com/kevin850115/kevin/wiki/NIO%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0)
