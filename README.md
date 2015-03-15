@@ -10,6 +10,9 @@
 * [持续集成](https://github.com/kevin850115/kevin/wiki/持续集成)
 * [Maven](https://github.com/kevin850115/kevin/wiki/maven)
 
+### SCALA
+* [51CTO-SCALA专题](http://developer.51cto.com/art/200906/127830.htm)
+
 ### 数据库
 * [数据库基础](https://github.com/kevin850115/kevin/wiki/database)
 * [mysql](https://github.com/kevin850115/kevin/wiki/mysql)
